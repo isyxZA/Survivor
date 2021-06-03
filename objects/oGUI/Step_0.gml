@@ -1,5 +1,7 @@
 mouseX = device_mouse_x_to_gui(0);
 mouseY = device_mouse_y_to_gui(0);
+x = mouseX;
+y = mouseY;
 
 //Player UI buttons
 //Left tab
@@ -15,10 +17,99 @@ if point_distance(mouseX, mouseY, playerUIrx, playerUIy3) < 10 { touchR3 = true;
 if point_distance(mouseX, mouseY, playerUIrx, playerUIy4) < 10 { touchR4 = true; } else { touchR4 = false; }
 if point_distance(mouseX, mouseY, playerUIrx, playerUIy5) < 10 { touchR5 = true; } else { touchR5 = false; }
 
+if optionsDisplay
+{
+	//Selection boxes for dialog options
+	var opt1 = collision_rectangle(playerUIxT, playerUIyT - 4, playerUIxT + (playerUIw * 0.9), playerUIyT - 20, oGUI, false, false);
+	if opt1 != noone
+	{
+		option1 = true;
+	}
+	else
+	{
+		option1 = false;
+	}
+}
+else
+{
+	option1 = false;
+}
+
 if point_distance(mouseX, mouseY, playerUImx, playerUImy) < (playerUIw * 0.6) { playerUItouch = true; } else { playerUItouch = false; }
 
 //Button actions
-
+//Click to activate
+if mouse_check_button_pressed(global.LMOUSE)
+{
+	//Dialog button
+	if touchR2
+	{
+		if instance_exists(oPlayer)
+		{
+			with oPlayer 
+			{ 
+				if canTalk 
+				{ 
+					//If we are talking to an individual unit
+					if oControl.selectedObj != noone
+					{
+						//Get the level of dialog
+						if oDialog.menuLevel <= ACTIONMENU
+						{
+							GreetOne(uType);
+							GetReply(uType, oControl.selectedObj, oDialog.menuLevel);
+						}
+						//ex. chatting, trading, orders etc...
+						//Retreive a relevant dialog line
+						//GetDialog(uType, true, false, true); 
+					}
+					//Broadcast to nearby units and try to get a dialog started
+					else
+					{
+						GreetAll(uType);
+						GetDialogPartner();
+					}
+				} 
+			}
+		}
+	}
+}
+else
+{
+	//Hotkey to activate
+	//Dialog hotkey
+	if keyboard_check_pressed(ord("T")) 
+	{
+		if instance_exists(oPlayer)
+		{
+			with oPlayer 
+			{ 
+				if canTalk 
+				{ 
+					//If we are talking to an individual unit
+					if oControl.selectedObj != noone
+					{
+						//Get the level of dialog
+						if oDialog.menuLevel <= ACTIONMENU
+						{
+							GreetOne(uType);
+							GetReply(uType, oControl.selectedObj, oDialog.menuLevel);
+						}
+						//ex. chatting, trading, orders etc...
+						//Retreive a relevant dialog line
+						//GetDialog(uType, true, false, true); 
+					}
+					//Broadcast to nearby units and try to get a dialog started
+					else
+					{
+						GreetAll(uType);
+						GetDialogPartner();
+					}
+				} 
+			}
+		}
+	}
+}
 
 if oControl.selectedObj != noone
 {
@@ -29,7 +120,12 @@ if oControl.selectedObj != noone
 		selectedUImx = selectedUIx + (selectedUIw * 0.5);//Center X
 		selectedUIlx = selectedUIx + (selectedUIw * 0.1);//Left tab X
 		selectedUIrx = selectedUIx + (selectedUIw * 0.9);//Right tab X
+		selectedUIxT = selectedUIx + 12;//Dialog X
+		selectedUIyT = selectedUIy;//Dialog Y
+		selectedUIxR = selectedUIx + (selectedUIw * 0.62);//Rank X
+		selectedUIyR = selectedUIy + (selectedUIh * 0.78);//Rank Y
 	}
+	playerUIxR = playerUIx + (playerUIw * 0.38);//Rank X
 	//Selected UI buttons
 	//Left tab
 	if point_distance(mouseX, mouseY, selectedUIlx, selectedUIy1) < 10 { touchL1s = true; } else { touchL1s = false; }
@@ -60,6 +156,8 @@ else
 		selectedUIx = lerp(selectedUIx, selectedUIxStart, 0.1); 
 		selectedUImx = selectedUIx + (selectedUIw * 0.5);//Center X
 	}
+	playerUIxR = playerUIx + (playerUIw * 0.62);//Rank X
+	if !ds_list_empty(selectedDialog) { ds_list_clear(selectedDialog); }
 }
 
 if playerUItouch || selectedUItouch || menuUItouch { oControl.canSelect = false; } else { oControl.canSelect = true; }

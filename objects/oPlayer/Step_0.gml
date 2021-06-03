@@ -199,19 +199,12 @@ if moving
 	AdjustTransform(uType); 
 }
 
-if canTalk 
-{
-	//Greet all nearby units
-	if keyboard_check_pressed(ord("T")) 
-	{
-		GetDialog(uType, true, false, true);
-	}
-}
-
 if showDialog
 {
 	showDialog = false;
 	dialogTime = room_speed * 0.2;
 	alarm[3] = room_speed * 0.2;
 	ds_list_add(global.DialogList, id);
+	ds_list_add(oGUI.playerDialog, dText);
+	oGUI.alarm[1] = 200;
 }

@@ -1,6 +1,6 @@
 cellSize = 32;
-cellCountX = 320;//Horizontal 
-cellCountY = 320;//Vertical
+cellCountX = 312;//Horizontal 
+cellCountY = 312;//Vertical
 
 gridWidth  = cellCountX * cellSize;
 gridHeight = cellCountY * cellSize;

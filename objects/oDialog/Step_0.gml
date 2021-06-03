@@ -86,6 +86,9 @@ else
 
 if menuDrag
 {
-	//Adjust the menu position
-	SetMenuPosition();
+	if !oGUI.playerUItouch && !oGUI.selectedUItouch
+	{
+		//Adjust the menu position
+		SetMenuPosition();
+	}
 }

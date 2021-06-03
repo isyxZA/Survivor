@@ -419,7 +419,7 @@ if createfPlatoon3
 			}
 			nu.uFormationPosition = i;
 			nu.uPlatoon = 3;
-			nu.uSquad = "f3A";
+			nu.uSquad = "f3_A";
 			nu.xAdj = xAdj;
 			nu.yAdj = yAdj;
 			nu.cellX = cellX;

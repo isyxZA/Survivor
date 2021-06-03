@@ -65,6 +65,7 @@ function GetDialog(type, isGreeting, isResponse, isFriendly)
 			else if isResponse
 			{
 			}
+			
 			break;
 		case E_RIFLEMAN://Foe
 			if isGreeting
@@ -94,6 +95,7 @@ function GetDialog(type, isGreeting, isResponse, isFriendly)
 			else if isResponse
 			{
 			}
+			
 			break;
 	}
 	if dialog != "" { ds_list_add(dialogList, dialog); }

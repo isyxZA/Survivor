@@ -38,11 +38,11 @@ function InitDialog(type)
 			dSurfTargetH = 0;
 			dText  = "";
 			
-			canTalk = false;
+			canTalk = true;
 			getDialog = false;
 			showDialog = false;
 			dialogTime = 0;
-			alarm[2] = uTalkRate * irandom_range(6, 22);
+			//alarm[2] = uTalkRate * irandom_range(6, 22);
 			break;
 		case E_RIFLEMAN://Foe
 			dialogList = ds_list_create();
@@ -58,11 +58,11 @@ function InitDialog(type)
 			dSurfTargetH = 0;
 			dText  = "";
 			
-			canTalk = false;
+			canTalk = true;
 			getDialog = false;
 			showDialog = false;
 			dialogTime = 0;
-			alarm[2] = uTalkRate * irandom_range(6, 22);
+			//alarm[2] = uTalkRate * irandom_range(6, 22);
 			break;
 	}
 }

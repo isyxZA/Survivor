@@ -19,5 +19,6 @@ else
 		dialogTime = room_speed * 0.2;
 		alarm[3] = room_speed * 0.2;
 		dText = ds_list_find_value(dialogList, 0);
+		ds_list_add(oGUI.playerDialog, dText);
 	}
 }

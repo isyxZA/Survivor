@@ -1,9 +1,23 @@
 //Selected Object UI
 if selectedUI
 {
+	if !ds_list_empty(selectedDialog)
+	{
+		draw_set_font(fnt10);
+		draw_set_halign(fa_left);
+		var dss = ds_list_size(selectedDialog);
+		var ysp = dss*30;
+		for (var i = 0; i < dss; ++i)
+		{
+			var dst = selectedDialog[| i];
+			draw_text(selectedUIxT, selectedUIyT - (ysp-(i*30)), string(dst));
+		}
+	}
 	draw_sprite_ext(sUIa, 0, selectedUIx, selectedUIy, 0.9, 0.9, 0, c_white, 0.8);
 	if oControl.selectedObj != noone
 	{
+		draw_set_font(fnt14);
+		draw_set_halign(fa_center);
 		draw_text(selectedUImx, selectedUIy + 18, oControl.selectedObj.uName + " " + oControl.selectedObj.uSurname);
 		switch oControl.selectedObj.uType
 		{
@@ -40,17 +54,37 @@ if selectedUI
 	}
 }
 
+if option1
+{
+	draw_text(x, y, "Option1");
+}
+
 //Player UI
 if playerUI
 {
+	if !ds_list_empty(playerDialog)
+	{
+		draw_set_font(fnt10);
+		draw_set_halign(fa_left);
+		var dss = ds_list_size(playerDialog);
+		var ysp = dss*30;
+		for (var i = 0; i < dss; ++i)
+		{
+			var dst = playerDialog[| i];
+			draw_text(playerUIxT, playerUIyT - (ysp-(i*30)), string(dst));
+		}
+	}
+	
 	draw_sprite_ext(sUIa, 0, playerUIx, playerUIy, 1, 1, 0, c_white, 0.8);
 	if instance_exists(oPlayer)
 	{
+		draw_set_font(fnt14);
+		draw_set_halign(fa_center);
 		draw_text(playerUImx, playerUIy + 18, oPlayer.uName + " " +  oPlayer.uSurname);
 		var r;
 		if selectedUI { r = 1; } else { r = -1; }
 		draw_sprite_ext(sFriendlyFace01, 0, playerUImx, playerUImy, r, 1, 0, c_white, 0.2);
-		draw_sprite_ext(sRank, 0, playerUImx, playerUIyR, 1, 1, 0, c_silver, 1);
+		draw_sprite_ext(sRank, 0, playerUIxR, playerUIyR, 0.8, 0.8, 0, c_silver, 1);
 	}
 
 	draw_sprite_ext(sHealth , 0, playerUIlx, playerUIy1, 1, 1, 0, c_silver, 1);
@@ -61,11 +95,11 @@ if playerUI
 	
 	draw_sprite_ext(sInventory, 0, playerUIrx, playerUIy1, 1, 1, 0, c_silver, 1);
 	draw_sprite_ext(sDialog   , 0, playerUIrx, playerUIy2, 1, 1, 0, c_silver, 1);
-	draw_sprite_ext(sAttack   , 0, playerUIrx, playerUIy3, 1, 1, 0, c_silver, 1);
-	draw_sprite_ext(sFollow   , 0, playerUIrx, playerUIy4, 1, 1, 0, c_silver, 1);
+	draw_sprite_ext(sFollow   , 0, playerUIrx, playerUIy3, 1, 1, 0, c_silver, 1);
+	draw_sprite_ext(sAttack   , 0, playerUIrx, playerUIy4, 1, 1, 0, c_silver, 1);
 	draw_sprite_ext(sBio      , 0, playerUIrx, playerUIy5, 1, 1, 0, c_silver, 1);
 	
-	draw_set_font(fnt10);
+	draw_set_font(fnt12);
 	draw_set_halign(fa_left);
 	draw_set_color(c_silver);
 	if touchL1 { draw_text(mouseX+10, mouseY-10, "Health"); }

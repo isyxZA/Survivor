@@ -15,6 +15,7 @@ function SetStats(type)
 	uMoraleRate = 0;
 	
 	uVision = oGrid.cellSize * oGrid.cellSize;
+	uVoiceRange =  oGrid.cellSize * 12;
 	
 	uAimTime = 2000;
 	uAcurracy = 30;

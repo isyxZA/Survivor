@@ -35,31 +35,6 @@ if moving
 	AdjustTransform(uType); 
 }
 
-if canTalk
-{
-	canTalk = false;
-	alarm[2] = uTalkRate * choose(2, 3, 4);
-	var ci = collision_circle(x, y, oGrid.cellSize * 4, oCollider, false, true);
-	if ci != noone
-	{
-		//Set dialog according to unit type that we just collided with
-		switch ci.uType
-		{
-			case PLAYER:
-				GetDialog(uType, true, false, true);
-				break;
-			case F_RIFLEMAN:
-				GetDialog(uType, true, false, true);
-				break;
-			case E_RIFLEMAN:
-				GetDialog(uType, true, false, false);
-				break;
-			default:
-				break;
-		}
-	}
-}
-
 if getDialog
 {
 	getDialog = false;
@@ -72,4 +47,6 @@ if showDialog
 	dialogTime = room_speed * 0.2;
 	alarm[3] = room_speed * 0.2;
 	ds_list_add(global.DialogList, id);
+	ds_list_add(oGUI.selectedDialog, dText);
+	oGUI.alarm[2] = 200;
 }

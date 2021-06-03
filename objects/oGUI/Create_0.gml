@@ -18,7 +18,11 @@ playerUIy = guiHeight - (sprite_get_height(sUIa) + 4);//Top left Y
 playerUIw = sprite_get_width(sUIa);
 playerUIh = sprite_get_height(sUIa);
 
-playerUIyR = playerUIy + (playerUIh * 0.9);//Rank Y
+playerUIxT = playerUIx + 8;//Dialog X
+playerUIyT = playerUIy - 4;//Dialog Y
+
+playerUIxR = playerUIx + (playerUIw * 0.62);//Rank X
+playerUIyR = playerUIy + (playerUIh * 0.78);//Rank Y
 
 playerUImx = playerUIx + (playerUIw * 0.5);//Center X
 playerUImy = playerUIy + (playerUIh * 0.5);//Center Y
@@ -58,6 +62,12 @@ selectedUIy = playerUIy + (sprite_get_height(sUIa) * 0.05);
 selectedUIw = sprite_get_width(sUIa) * 0.9;
 selectedUIh = sprite_get_height(sUIa) * 0.9;
 
+selectedUIxT = selectedUIx + 6;//Dialog X
+selectedUIyT = selectedUIy;//Dialog Y
+
+selectedUIxR = selectedUIx + (selectedUIw * 0.62);//Rank X
+selectedUIyR = selectedUIy + (selectedUIh * 0.78);//Rank Y
+
 selectedUImx = selectedUIx + (selectedUIw * 0.5);//Center X
 selectedUImy = selectedUIy + (selectedUIh * 0.5);//Center Y
 
@@ -81,3 +91,9 @@ touchR2s = false;
 touchR3s = false;
 touchR4s = false;
 touchR5s = false;
+
+optionsDialog = ds_list_create();
+optionsDisplay = true;
+option1 = false;
+playerDialog = ds_list_create();
+selectedDialog = ds_list_create();

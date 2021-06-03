@@ -10,8 +10,8 @@ else if mouse_check_button_pressed(global.LMOUSE)
 //Selected object logic
 if selectedObj != noone 
 { 
-	//Dialog hotkey
-	if keyboard_check_pressed(ord("F"))
+	//Menu hotkey
+	if keyboard_check_pressed(ord("E"))
 	{
 		//Actions menu setup
 		//If the menu is not currently active
@@ -40,29 +40,13 @@ if selectedObj != noone
 	}
 }
 
-/*
-//Unit spawn control
-if keyboard_check_pressed(ord("P"))
-{
-	if GetCell(mouse_x, mouse_y)
-	{
-		if instance_exists(oPlayer) { with oPlayer { instance_destroy(); } }
-		with instance_create_layer(mouse_x, mouse_y, "Units", oPlayer)
-		{
-			cellX = (x - oGrid.x) div oGrid.cellSize;
-			cellY = (y - oGrid.y) div oGrid.cellSize;
-			mp_grid_add_cell(global.NavGrid, cellX, cellY);
-		}
-	}
-}
-*/
-
 //Toggle nav grid display...DEBUG ONLY!
 if keyboard_check_pressed(global.GRID)
 {
 	if oGrid.showGrid { oGrid.showGrid = false; }
 		else { oGrid.showGrid = true;  }
 }
+
 //Toggle debug panel
 if keyboard_check_pressed(ord("B"))
 {
