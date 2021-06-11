@@ -13,70 +13,67 @@ if findGoal
 			{
 				var up;
 				var us;
-				switch other.uPlatoon
+				switch other.uSquad
 				{
-					case 1:
+					case "f1_A":
 						up = fPlatoon1;
-						switch other.uSquad
-						{
-							case "f1_A":
-								us = 0;
-								break;
-							case "f1_B":
-								us = 1;
-								break;
-							case "f1_C":
-								us = 2;
-								break;
-							case "f1_D":
-								us = 3;
-								break;
-							case "f1_E":
-								us = 4;
-								break;
-						}
+						us = 0;
 						break;
-					case 2:
+					case "f1_B":
+						up = fPlatoon1;
+						us = 1;
+						break;
+					case "f1_C":
+						up = fPlatoon1;
+						us = 2;
+						break;
+					case "f1_D":
+						up = fPlatoon1;
+						us = 3;
+						break;
+					case "f1_E":
+						up = fPlatoon1;
+						us = 4;
+						break;
+					case "f2_A":
 						up = fPlatoon2;
-						switch other.uSquad
-						{
-							case "f2_A":
-								us = 0;
-								break;
-							case "f2_B":
-								us = 1;
-								break;
-							case "f2_C":
-								us = 2;
-								break;
-							case "f2_D":
-								us = 3;
-								break;
-							case "f2_E":
-								us = 4;
-								break;
-						}
+						us = 0;
 						break;
-					case 3:
+					case "f2_B":
+						up = fPlatoon2;
+						us = 1;
+						break;
+					case "f2_C":
+						up = fPlatoon2;
+						us = 2;
+						break;
+					case "f2_D":
+						up = fPlatoon2;
+						us = 3;
+						break;
+					case "f2_E":
+						up = fPlatoon2;
+						us = 4;
+						break;
+					case "f3_A":
 						up = fPlatoon3;
-						switch other.uSquad
-						{
-							case "f3_A":
-								us = 0;
-								break;
-							case "f3_B":
-								us = 1;
-								break;
-							case "f3_C":
-								us = 2;
-								break;
-							case "f3_D":
-								us = 3;
-								break;
-							case "f3_E":
-								us = 4;
-								break;
-						}
+						us = 0;
+						break;
+					case "f3_B":
+						up = fPlatoon3;
+						us = 1;
+						break;
+					case "f3_C":
+						up = fPlatoon3;
+						us = 2;
+						break;
+					case "f3_D":
+						up = fPlatoon3;
+						us = 3;
+						break;
+					case "f3_E":
+						up = fPlatoon3;
+						us = 4;
 						break;
 				}
 				MoveSquad(up, us);
@@ -100,70 +97,67 @@ if mouse_check_button_pressed(global.RMOUSE)
 				{
 					var up;
 					var us;
-					switch other.uPlatoon
+					switch other.uSquad
 					{
-						case 1:
+						case "f1_A":
 							up = fPlatoon1;
-							switch other.uSquad
-							{
-								case "f1_A":
-									us = 0;
-									break;
-								case "f1_B":
-									us = 1;
-									break;
-								case "f1_C":
-									us = 2;
-									break;
-								case "f1_D":
-									us = 3;
-									break;
-								case "f1_E":
-									us = 4;
-									break;
-							}
+							us = 0;
 							break;
-						case 2:
+						case "f1_B":
+							up = fPlatoon1;
+							us = 1;
+							break;
+						case "f1_C":
+							up = fPlatoon1;
+							us = 2;
+							break;
+						case "f1_D":
+							up = fPlatoon1;
+							us = 3;
+							break;
+						case "f1_E":
+							up = fPlatoon1;
+							us = 4;
+							break;
+						case "f2_A":
 							up = fPlatoon2;
-							switch other.uSquad
-							{
-								case "f2_A":
-									us = 0;
-									break;
-								case "f2_B":
-									us = 1;
-									break;
-								case "f2_C":
-									us = 2;
-									break;
-								case "f2_D":
-									us = 3;
-									break;
-								case "f2_E":
-									us = 4;
-									break;
-							}
+							us = 0;
 							break;
-						case 3:
+						case "f2_B":
+							up = fPlatoon2;
+							us = 1;
+							break;
+						case "f2_C":
+							up = fPlatoon2;
+							us = 2;
+							break;
+						case "f2_D":
+							up = fPlatoon2;
+							us = 3;
+							break;
+						case "f2_E":
+							up = fPlatoon2;
+							us = 4;
+							break;
+						case "f3_A":
 							up = fPlatoon3;
-							switch other.uSquad
-							{
-								case "f3_A":
-									us = 0;
-									break;
-								case "f3_B":
-									us = 1;
-									break;
-								case "f3_C":
-									us = 2;
-									break;
-								case "f3_D":
-									us = 3;
-									break;
-								case "f3_E":
-									us = 4;
-									break;
-							}
+							us = 0;
+							break;
+						case "f3_B":
+							up = fPlatoon3;
+							us = 1;
+							break;
+						case "f3_C":
+							up = fPlatoon3;
+							us = 2;
+							break;
+						case "f3_D":
+							up = fPlatoon3;
+							us = 3;
+							break;
+						case "f3_E":
+							up = fPlatoon3;
+							us = 4;
 							break;
 					}
 					MoveSquad(up, us);

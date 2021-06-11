@@ -1,5 +1,6 @@
 spawnCell = noone;
-squadSize = 11;
+squadSize = 11;//Infantry squad size
+squadSizeT = 5;//Tank squad size
 xAdj = 0;
 yAdj = 0;
 cellX = 0;
@@ -99,6 +100,29 @@ ds_list_mark_as_list(fPlatoon3, 3);
 fPlatoon3[| 4] = fSquadP3e;
 ds_list_mark_as_list(fPlatoon3, 4);
 
+//ARMOR PLATOON
+createfPlatoonT = true;
+movefPlatoonT = false;
+
+fPlatoonT = ds_list_create();//First Platoon
+fPlatoonTX = room_width * 0.5;
+fPlatoonTY = room_height * 0.8;
+
+fSquadPTa = ds_list_create();//Able squad
+fSquadPTb = ds_list_create();//Bravo squad
+fSquadPTc = ds_list_create();//Charlie squad
+
+fsquadLeadPTa = noone;
+fsquadLeadPTb = noone;
+fsquadLeadPTc = noone;
+
+fPlatoonT[| 0] = fSquadPTa;
+ds_list_mark_as_list(fPlatoonT, 0);
+fPlatoonT[| 1] = fSquadPTb;
+ds_list_mark_as_list(fPlatoonT, 1);
+fPlatoonT[| 2] = fSquadPTc;
+ds_list_mark_as_list(fPlatoonT, 2);
+
 //Enemy forces init
 //PLATOON 1
 createePlatoon1 = true;
@@ -193,11 +217,34 @@ ds_list_mark_as_list(ePlatoon3, 3);
 ePlatoon3[| 4] = eSquadP3e;
 ds_list_mark_as_list(ePlatoon3, 4);
 
+//ARMOR PLATOON
+createePlatoonT = true;
+moveePlatoonT = false;
+
+ePlatoonT = ds_list_create();//First Platoon
+ePlatoonTX = room_width * 0.5;
+ePlatoonTY = room_height * 0.8;
+
+eSquadPTa = ds_list_create();//Able squad
+eSquadPTb = ds_list_create();//Bravo squad
+eSquadPTc = ds_list_create();//Charlie squad
+
+esquadLeadPTa = noone;
+esquadLeadPTb = noone;
+esquadLeadPTc = noone;
+
+ePlatoonT[| 0] = eSquadPTa;
+ds_list_mark_as_list(ePlatoonT, 0);
+ePlatoonT[| 1] = eSquadPTb;
+ds_list_mark_as_list(ePlatoonT, 1);
+ePlatoonT[| 2] = eSquadPTc;
+ds_list_mark_as_list(ePlatoonT, 2);
+
 //Waypoints
 //Center Front
 //Friendly positions
 fplatoon1x = room_width * 0.5;
-fplatoon1y = room_height * 0.55;
+fplatoon1y = room_height * 0.65;
 // ||
 fsquad1Ax = fplatoon1x;
 fsquad1Ay = fplatoon1y;
@@ -216,7 +263,7 @@ fsquad1Ey = fplatoon1y + (oGrid.cellSize * 10);
 
 //Foe positions
 eplatoon1x = room_width * 0.5;
-eplatoon1y = room_height * 0.45;
+eplatoon1y = room_height * 0.35;
 
 // ||
 esquad1Ax = eplatoon1x;
@@ -238,7 +285,7 @@ esquad1Ey = eplatoon1y - (oGrid.cellSize * 10);
 //Western Front
 //Friendly positions
 fplatoon2x = room_width * 0.2;
-fplatoon2y = room_height * 0.55;
+fplatoon2y = room_height * 0.6;
 // ||
 fsquad2Ax = fplatoon2x;
 fsquad2Ay = fplatoon2y;
@@ -257,7 +304,7 @@ fsquad2Ey = fplatoon2y + (oGrid.cellSize * 10);
 
 //Foe positions
 eplatoon2x = room_width * 0.8;
-eplatoon2y = room_height * 0.45;
+eplatoon2y = room_height * 0.4;
 
 // ||
 esquad2Ax = eplatoon2x;
@@ -278,7 +325,7 @@ esquad2Ey = eplatoon2y - (oGrid.cellSize * 10);
 //Eastern Front
 //Friendly positions
 fplatoon3x = room_width * 0.8;
-fplatoon3y = room_height * 0.55;
+fplatoon3y = room_height * 0.6;
 // ||
 fsquad3Ax = fplatoon3x;
 fsquad3Ay = fplatoon3y;
@@ -297,7 +344,7 @@ fsquad3Ey = fplatoon3y + (oGrid.cellSize * 10);
 
 //Foe positions
 eplatoon3x = room_width * 0.2;
-eplatoon3y = room_height * 0.45;
+eplatoon3y = room_height * 0.4;
 
 // ||
 esquad3Ax = eplatoon3x;
@@ -314,3 +361,29 @@ esquad3Dy = eplatoon3y - (oGrid.cellSize * 10);
 // -->
 esquad3Ex = eplatoon3x - (oGrid.cellSize * 30);
 esquad3Ey = eplatoon3y - (oGrid.cellSize * 10);
+
+//Friendly tank positions
+fplatoonTx = room_width * 0.5;
+fplatoonTy = room_height * 0.55;
+// ||
+fsquadTAx = fplatoonTx;
+fsquadTAy = fplatoonTy;
+// <-
+fsquadTBx = fplatoonTx - (oGrid.cellSize * 50);
+fsquadTBy = fplatoonTy + (oGrid.cellSize * 10);
+// ->
+fsquadTCx = fplatoonTx + (oGrid.cellSize * 50);
+fsquadTCy = fplatoonTy + (oGrid.cellSize * 10);
+
+//Foe tank positions
+eplatoonTx = room_width * 0.5;
+eplatoonTy = room_height * 0.45;
+// ||
+esquadTAx = eplatoonTx;
+esquadTAy = eplatoonTy;
+// <-
+esquadTBx = eplatoonTx + (oGrid.cellSize * 50);
+esquadTBy = eplatoonTy - (oGrid.cellSize * 10);
+// ->
+esquadTCx = eplatoonTx - (oGrid.cellSize * 50);
+esquadTCy = eplatoonTy - (oGrid.cellSize * 10);

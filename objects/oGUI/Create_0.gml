@@ -48,7 +48,6 @@ touchR3 = false;
 touchR4 = false;
 touchR5 = false;
 
-
 //Selected UI setup
 selectedUI = false;
 selectedUItouch = false;
@@ -92,8 +91,20 @@ touchR3s = false;
 touchR4s = false;
 touchR5s = false;
 
-optionsDialog = ds_list_create();
-optionsDisplay = true;
-option1 = false;
+//Dialog init
+dialogLevel = 0;
 playerDialog = ds_list_create();
 selectedDialog = ds_list_create();
+
+//Dialog choices
+optionsDialog = ds_list_create();
+optionsDisplay = false;
+optionsUItouch = false;
+optionsUIyTarget = playerUIyT - 4;
+optionsUIh = 80;
+optionsUIy = optionsUIyTarget + optionsUIh;
+option1 = false;
+option2 = false;
+option3 = false;
+
+dialogBranch = "ZERO";

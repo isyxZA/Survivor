@@ -12,11 +12,37 @@ function GetSelected(mButton)
 			if su > 0
 			{
 				var iu = ds_list_find_value(sList, 0);
-				if iu.uType != PLAYER && iu != selectedObj
-				{ 
-					if selectedObj != noone { selectedObj.isSelected = false; }
-					iu.isSelected = true; 
-					selectedObj = iu;
+				switch iu.uType
+				{
+					case PLAYER:
+					case F_TANK:
+						break;
+					case F_RIFLEMAN:
+						if iu != selectedObj
+						{ 
+							if selectedObj != noone { selectedObj.isSelected = false; }
+							iu.isSelected = true; 
+							selectedObj = iu;
+							//Reset gui dialog
+							oGUI.dialogLevel = 0;
+							oGUI.optionsDisplay = false;
+							oGUI.dialogBranch = "ZERO";
+						}
+						break;
+					case E_RIFLEMAN:
+						if iu != selectedObj
+						{ 
+							if selectedObj != noone { selectedObj.isSelected = false; }
+							iu.isSelected = true; 
+							selectedObj = iu;
+							//Reset gui dialog
+							oGUI.dialogLevel = 0;
+							oGUI.optionsDisplay = false;
+							oGUI.dialogBranch = "ZERO";
+						}
+						break;
+					case E_TANK:
+						break;
 				}
 			}
 			else
@@ -48,32 +74,77 @@ function GetSelected(mButton)
 			if su > 0
 			{
 				var iu = ds_list_find_value(sList, 0);
-				//Don't do anything if we've clicked the player or the object that is currently selected
-				if iu.uType != PLAYER && iu != selectedObj
-				{ 
-					if selectedObj != noone { selectedObj.isSelected = false; }
-					iu.isSelected = true; 
-					selectedObj = iu;
-					//Actions menu setup
-					//If the menu is not currently active
-					with oDialog
-					{
-						if !menuActive { menuLevel = ACTIONMENU; }
-						SetActionMenu(menuLevel);
-					}
-				}
-				else
-				if iu == selectedObj
+				switch iu.uType
 				{
-					if !oDialog.menuActive
-					{
-						with oDialog
-						{
-							menuLevel = ACTIONMENU;
-							SetActionMenu(menuLevel);
+					case PLAYER:
+					case F_TANK:
+						break;
+					case F_RIFLEMAN:
+						//Don't do anything if we've clicked the player or the object that is currently selected
+						if iu != selectedObj
+						{ 
+							if selectedObj != noone { selectedObj.isSelected = false; }
+							iu.isSelected = true; 
+							selectedObj = iu;
+							//Actions menu setup
+							//If the menu is not currently active
+							with oDialog
+							{
+								if !menuActive { menuLevel = ACTIONMENU; }
+								SetActionMenu(menuLevel);
+							}
+							//Reset gui dialog
+							oGUI.dialogLevel = 0;
+							oGUI.optionsDisplay = false;
+							oGUI.dialogBranch = "ZERO";
 						}
-					}
+						else if iu == selectedObj
+						{
+							if !oDialog.menuActive && !oGUI.optionsDisplay
+							{
+								with oDialog
+								{
+									menuLevel = ACTIONMENU;
+									SetActionMenu(menuLevel);
+								}
+							}
+						}
+						break;
+					case E_RIFLEMAN:
+						//Don't do anything if we've clicked the player or the object that is currently selected
+						if iu != selectedObj
+						{ 
+							if selectedObj != noone { selectedObj.isSelected = false; }
+							iu.isSelected = true; 
+							selectedObj = iu;
+							//Actions menu setup
+							//If the menu is not currently active
+							with oDialog
+							{
+								if !menuActive { menuLevel = ACTIONMENU_E; }
+								SetActionMenu(menuLevel);
+							}
+							//Reset gui dialog
+							oGUI.dialogLevel = 0;
+							oGUI.optionsDisplay = false;
+							oGUI.dialogBranch = "ZERO";
+						}
+						else if iu == selectedObj
+						{
+							if !oDialog.menuActive && !oGUI.optionsDisplay
+							{
+								with oDialog
+								{
+									menuLevel = ACTIONMENU_E;
+									SetActionMenu(menuLevel);
+								}
+							}
+						}
+						break;
+					case E_TANK:
+						break;
 				}
+				
 			}
 			ds_list_destroy(sList);
 			break;

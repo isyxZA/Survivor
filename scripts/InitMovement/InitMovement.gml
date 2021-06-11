@@ -36,19 +36,33 @@ function InitMovement(type)
 			image_angle = 90;
 			rotationTarget = 90;
 			pSpeed = 0;
-			tSpeed = 1.5;
+			tSpeed = 1;
 			break;
 		case F_RIFLEMAN://Friend
 			image_angle = 90;
 			rotationTarget = 90;
 			pSpeed = 0;
-			tSpeed = 1.5;
+			tSpeed = 0.6;
 			break;
 		case E_RIFLEMAN://Foe
 			image_angle = 270;
 			rotationTarget = 270;
 			pSpeed = 0;
-			tSpeed = 1.5;
+			tSpeed = 0.6;
+			break;
+		case F_TANK://Friendly Tank
+			image_angle = 90;
+			turret_angle = 270;
+			rotationTarget = 90;
+			pSpeed = 0;
+			tSpeed = 1;
+			break;
+		case E_TANK://Foe Tank
+			image_angle = 270;
+			turret_angle = 270;
+			rotationTarget = 270;
+			pSpeed = 0;
+			tSpeed = 1;
 			break;
 	}
 }

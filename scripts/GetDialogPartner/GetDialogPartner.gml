@@ -11,12 +11,25 @@ function GetDialogPartner()
 			if i == rNum
 			{
 				var cUnit = cList[| i];
-				if cUnit.canTalk
+				switch cUnit.uType
 				{
-					if oControl.selectedObj != noone { oControl.selectedObj.isSelected = false; }
-					oControl.selectedObj = cUnit;
-					with cUnit { isSelected = true; GreetOne(uType); }
-					break;
+					case F_RIFLEMAN:
+						if cUnit.canTalk
+						{
+							if oControl.selectedObj != noone { oControl.selectedObj.isSelected = false; }
+							oControl.selectedObj = cUnit;
+							with cUnit { isSelected = true; GreetOne(uType); }
+							oGUI.dialogLevel = 1;
+							//Enable options display
+							oGUI.alarm[3] = room_speed;
+							break;
+						}
+						continue;
+					case PLAYER:
+					case F_TANK:
+					case E_RIFLEMAN:
+					case E_TANK:
+						continue;
 				}
 			}
 	    }

@@ -40,31 +40,31 @@ if global.GameState == "IN_GAME" {
         switch zoom_level {
             case 0:
 			case 1:
-                target_width  = 1366;
+                target_width  = 1600;
 				target_ratio = 0.7;
                 break;
             case 2:
 			case 3:
-                target_width  = 1600;
+                target_width  = 1920;
 				target_ratio = 0.8;
                 break;
             case 4:
 			case 5:
-                target_width  = 1920;
+                target_width  = 2048;
 				target_ratio = 0.9;
                 break;
             case 6:
 			case 7:
-                target_width  = 2048;
+                target_width  = 2560;
 				target_ratio = 1.0;
                 break;
             case 8:
 			case 9:
-                target_width  = 2560;
+                target_width  = 3200;
 				target_ratio = 1.1;
                 break
             case 10:
-                target_width  = 3200;
+                target_width  = 3840;
 				target_ratio = 1.2;
                 break;
         }

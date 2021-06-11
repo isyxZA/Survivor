@@ -15,6 +15,11 @@ if movefPlatoon3
 	movefPlatoon3 = false;
 	MoveSquad(fPlatoon3, irandom_range(0, 4));
 }
+if movefPlatoonT
+{
+	movefPlatoonT = false;
+	MoveSquad(fPlatoonT, irandom_range(0, 4));
+}
 
 //Foe forces movement
 if moveePlatoon1
@@ -31,4 +36,9 @@ if moveePlatoon3
 {
 	moveePlatoon3 = false;
 	MoveSquad(ePlatoon3, irandom_range(0, 4));
+}
+if moveePlatoonT
+{
+	moveePlatoonT = false;
+	MoveSquad(ePlatoonT, irandom_range(0, 4));
 }

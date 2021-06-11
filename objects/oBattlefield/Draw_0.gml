@@ -33,3 +33,11 @@ draw_sprite(sWaypoint, 0, esquad3Bx, esquad3By);
 draw_sprite(sWaypoint, 0, esquad3Cx, esquad3Cy);
 draw_sprite(sWaypoint, 0, esquad3Dx, esquad3Dy);
 draw_sprite(sWaypoint, 0, esquad3Ex, esquad3Ey);
+
+draw_sprite(sWaypoint, 0, fsquadTAx, fsquadTAy);
+draw_sprite(sWaypoint, 0, fsquadTBx, fsquadTBy);
+draw_sprite(sWaypoint, 0, fsquadTCx, fsquadTCy);
+
+draw_sprite(sWaypoint, 0, esquadTAx, esquadTAy);
+draw_sprite(sWaypoint, 0, esquadTBx, esquadTBy);
+draw_sprite(sWaypoint, 0, esquadTCx, esquadTCy);

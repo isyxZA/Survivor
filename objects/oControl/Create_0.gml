@@ -12,20 +12,40 @@ global.FoeList = ds_list_create();
 canSelect = true;
 selectedObj = noone;
 
-//Unit types
+//Unit (collision) types
 #macro PLAYER  0
 #macro F_RIFLEMAN  1
 #macro E_RIFLEMAN  2
+#macro F_TANK 3
+#macro E_TANK 4
+#macro F_LAV 5
+#macro E_LAV 6
+#macro F_LAC 7
+#macro E_LAC 8
+#macro F_LOGI 9
+#macro E_LOGI 10
 
-//Baseline constants
-#macro TALKRATEBASE 1000
+#macro L_COVER 11
+#macro H_COVER 12
+
+//Bullet damages
+#macro B_RIFLE 5
+#macro B_GRENADE 5
+#macro B_CANNON 15
+#macro B_MG 10
+
+//Bullet speeds
+#macro B_RIFLESPD 6
+#macro B_GRENADESPD 1
+#macro B_CANNONSPD 5
+#macro B_MGSPD 7
 
 //Menu constants
 #macro MENUCELL_W 180
 #macro MENUCELL_H 64
-
 #macro RESETMENU 0
 #macro ACTIONMENU 1
+#macro ACTIONMENU_E 2
 
 //Key map default
 //global.UP      = 87; //W

@@ -23,6 +23,7 @@ function InitDialog(type)
 			showDialog = false;
 			dialogTime = 0;
 			
+			uVoiceRange =  oGrid.cellSize * 16;
 			break;
 		case F_RIFLEMAN://Friend
 			dialogList = ds_list_create();
@@ -42,7 +43,8 @@ function InitDialog(type)
 			getDialog = false;
 			showDialog = false;
 			dialogTime = 0;
-			//alarm[2] = uTalkRate * irandom_range(6, 22);
+			
+			uVoiceRange =  oGrid.cellSize * 16;
 			break;
 		case E_RIFLEMAN://Foe
 			dialogList = ds_list_create();
@@ -62,7 +64,8 @@ function InitDialog(type)
 			getDialog = false;
 			showDialog = false;
 			dialogTime = 0;
-			//alarm[2] = uTalkRate * irandom_range(6, 22);
+			
+			uVoiceRange =  oGrid.cellSize * 16;
 			break;
 	}
 }

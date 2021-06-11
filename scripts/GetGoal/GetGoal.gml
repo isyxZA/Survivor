@@ -46,6 +46,18 @@ function GetGoal(squad)
 			goalX = oBattlefield.fsquad2Ex;
 			goalY = oBattlefield.fsquad2Ey;
 			break;
+		case "fT_A":
+			goalX = oBattlefield.fsquadTAx;
+			goalY = oBattlefield.fsquadTAy;
+			break;
+		case "fT_B":
+			goalX = oBattlefield.fsquadTBx;
+			goalY = oBattlefield.fsquadTBy;
+			break;
+		case "fT_C":
+			goalX = oBattlefield.fsquadTCx;
+			goalY = oBattlefield.fsquadTCy;
+			break;
 		//Friendly Platoon 3 
 		case "f3_A":
 			goalX = oBattlefield.fsquad3Ax;
@@ -130,6 +142,18 @@ function GetGoal(squad)
 		case "e3_E":
 			goalX = oBattlefield.esquad3Ex;
 			goalY = oBattlefield.esquad3Ey;
+			break;
+		case "eT_A":
+			goalX = oBattlefield.esquadTAx;
+			goalY = oBattlefield.esquadTAy;
+			break;
+		case "eT_B":
+			goalX = oBattlefield.esquadTBx;
+			goalY = oBattlefield.esquadTBy;
+			break;
+		case "eT_C":
+			goalX = oBattlefield.esquadTCx;
+			goalY = oBattlefield.esquadTCy;
 			break;
 	}
 }

@@ -127,6 +127,31 @@ function HaltSquad(squad)
 				hsu.uFollowTarget = noone;
 			}
 			break;
+		//Friendly tank platoon squads
+		case "fT_A":
+			var hss = ds_list_size(ds_list_find_value(fPlatoonT, 0));
+			for (var i = 0; i < hss; ++i)
+			{
+				var hsu = ds_list_find_value(ds_list_find_value(fPlatoonT, 0), i);
+				hsu.uFollowTarget = noone;
+			}
+			break;
+		case "fT_B":
+			var hss = ds_list_size(ds_list_find_value(fPlatoonT, 1));
+			for (var i = 0; i < hss; ++i)
+			{
+				var hsu = ds_list_find_value(ds_list_find_value(fPlatoonT, 1), i);
+				hsu.uFollowTarget = noone;
+			}
+			break;
+		case "fT_C":
+			var hss = ds_list_size(ds_list_find_value(fPlatoonT, 2));
+			for (var i = 0; i < hss; ++i)
+			{
+				var hsu = ds_list_find_value(ds_list_find_value(fPlatoonT, 2), i);
+				hsu.uFollowTarget = noone;
+			}
+			break;
 		//Foe platoon 1 squads
 		case "e1_A":
 			var hss = ds_list_size(ds_list_find_value(ePlatoon1, 0));
@@ -247,6 +272,31 @@ function HaltSquad(squad)
 			for (var i = 0; i < hss; ++i)
 			{
 				var hsu = ds_list_find_value(ds_list_find_value(ePlatoon3, 4), i);
+				hsu.uFollowTarget = noone;
+			}
+			break;
+		//Foe tank platoon squads
+		case "eT_A":
+			var hss = ds_list_size(ds_list_find_value(ePlatoonT, 0));
+			for (var i = 0; i < hss; ++i)
+			{
+				var hsu = ds_list_find_value(ds_list_find_value(ePlatoonT, 0), i);
+				hsu.uFollowTarget = noone;
+			}
+			break;
+		case "eT_B":
+			var hss = ds_list_size(ds_list_find_value(ePlatoonT, 1));
+			for (var i = 0; i < hss; ++i)
+			{
+				var hsu = ds_list_find_value(ds_list_find_value(ePlatoonT, 1), i);
+				hsu.uFollowTarget = noone;
+			}
+			break;
+		case "eT_C":
+			var hss = ds_list_size(ds_list_find_value(ePlatoonT, 2));
+			for (var i = 0; i < hss; ++i)
+			{
+				var hsu = ds_list_find_value(ds_list_find_value(ePlatoonT, 2), i);
 				hsu.uFollowTarget = noone;
 			}
 			break;

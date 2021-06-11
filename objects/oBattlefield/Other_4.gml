@@ -6,10 +6,10 @@ if createfPlatoon1
 	createfPlatoon1 = false;
 	//Squad Able
 	fPlatoon1X = room_width * 0.5;
-	fPlatoon1Y = room_height * 0.8;
+	fPlatoon1Y = oGrid.max_y - (oGrid.cellSize * 13);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon1X + xAdj;
 		var py = fPlatoon1Y + yAdj;
 		if GetCell(px, py)
@@ -47,10 +47,10 @@ if createfPlatoon1
 	}
 	//Squad Bravo
 	fPlatoon1X = room_width * 0.45;
-	fPlatoon1Y = room_height * 0.85;
+	fPlatoon1Y = oGrid.max_y - (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon1X + xAdj;
 		var py = fPlatoon1Y + yAdj;
 		if GetCell(px, py)
@@ -84,10 +84,10 @@ if createfPlatoon1
 	}
 	//Squad Charlie
 	fPlatoon1X = room_width * 0.55;
-	fPlatoon1Y = room_height * 0.8;
+	fPlatoon1Y = oGrid.max_y - (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon1X + xAdj;
 		var py = fPlatoon1Y + yAdj;
 		if GetCell(px, py)
@@ -121,10 +121,10 @@ if createfPlatoon1
 	}
 	//Squad Delta
 	fPlatoon1X = room_width * 0.4;
-	fPlatoon1Y = room_height * 0.8;
+	fPlatoon1Y = oGrid.max_y - (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon1X + xAdj;
 		var py = fPlatoon1Y + yAdj;
 		if GetCell(px, py)
@@ -158,10 +158,10 @@ if createfPlatoon1
 	}
 	//Squad Echo
 	fPlatoon1X = room_width * 0.6;
-	fPlatoon1Y = room_height * 0.8;
+	fPlatoon1Y = oGrid.max_y - (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon1X + xAdj;
 		var py = fPlatoon1Y + yAdj;
 		if GetCell(px, py)
@@ -201,10 +201,10 @@ if createfPlatoon2
 	createfPlatoon2 = false;
 	//Squad Able
 	fPlatoon2X = room_width * 0.25;
-	fPlatoon2Y = room_height * 0.8;
+	fPlatoon2Y = oGrid.max_y - (oGrid.cellSize * 13);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon2X + xAdj;
 		var py = fPlatoon2Y + yAdj;
 		if GetCell(px, py)
@@ -238,10 +238,10 @@ if createfPlatoon2
 	}
 	//Squad Bravo
 	fPlatoon2X = room_width * 0.2;
-	fPlatoon2Y = room_height * 0.85;
+	fPlatoon2Y = oGrid.max_y - (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon2X + xAdj;
 		var py = fPlatoon2Y + yAdj;
 		if GetCell(px, py)
@@ -275,10 +275,10 @@ if createfPlatoon2
 	}
 	//Squad Charlie
 	fPlatoon2X = room_width * 0.3;
-	fPlatoon2Y = room_height * 0.85;
+	fPlatoon2Y = oGrid.max_y - (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon2X + xAdj;
 		var py = fPlatoon2Y + yAdj;
 		if GetCell(px, py)
@@ -312,10 +312,10 @@ if createfPlatoon2
 	}
 	//Squad Delta
 	fPlatoon2X = room_width * 0.15;
-	fPlatoon2Y = room_height * 0.85;
+	fPlatoon2Y = oGrid.max_y - (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon2X + xAdj;
 		var py = fPlatoon2Y + yAdj;
 		if GetCell(px, py)
@@ -349,10 +349,10 @@ if createfPlatoon2
 	}
 	//Squad Echo
 	fPlatoon2X = room_width * 0.35;
-	fPlatoon2Y = room_height * 0.85;
+	fPlatoon2Y = oGrid.max_y - (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon2X + xAdj;
 		var py = fPlatoon2Y + yAdj;
 		if GetCell(px, py)
@@ -392,10 +392,10 @@ if createfPlatoon3
 	createfPlatoon3 = false;
 	//Squad Able
 	fPlatoon3X = room_width * 0.75;
-	fPlatoon3Y = room_height * 0.8;
+	fPlatoon3Y = oGrid.max_y - (oGrid.cellSize * 13);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon3X + xAdj;
 		var py = fPlatoon3Y + yAdj;
 		if GetCell(px, py)
@@ -429,10 +429,10 @@ if createfPlatoon3
 	}
 	//Squad Bravo
 	fPlatoon3X = room_width * 0.7;
-	fPlatoon3Y = room_height * 0.85;
+	fPlatoon3Y = oGrid.max_y - (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon3X + xAdj;
 		var py = fPlatoon3Y + yAdj;
 		if GetCell(px, py)
@@ -466,10 +466,10 @@ if createfPlatoon3
 	}
 	//Squad Charlie
 	fPlatoon3X = room_width * 0.8;
-	fPlatoon3Y = room_height * 0.85;
+	fPlatoon3Y = oGrid.max_y - (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon3X + xAdj;
 		var py = fPlatoon3Y + yAdj;
 		if GetCell(px, py)
@@ -503,10 +503,10 @@ if createfPlatoon3
 	}
 	//Squad Delta
 	fPlatoon3X = room_width * 0.65;
-	fPlatoon3Y = room_height * 0.85;
+	fPlatoon3Y = oGrid.max_y - (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon3X + xAdj;
 		var py = fPlatoon3Y + yAdj;
 		if GetCell(px, py)
@@ -540,10 +540,10 @@ if createfPlatoon3
 	}
 	//Squad Echo
 	fPlatoon3X = room_width * 0.85;
-	fPlatoon3Y = room_height * 0.85;
+	fPlatoon3Y = oGrid.max_y - (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", true);
+		GetFormationPosition(F_RIFLEMAN, i, "SQUARE");
 		var px = fPlatoon3X + xAdj;
 		var py = fPlatoon3Y + yAdj;
 		if GetCell(px, py)
@@ -577,6 +577,148 @@ if createfPlatoon3
 	}
 }
 
+//TANK PLATOON
+if createfPlatoonT
+{
+	createfPlatoonT = false;
+	//Squad Able
+	fPlatoonTX = room_width * 0.5;
+	fPlatoonTY = oGrid.max_y - (oGrid.cellSize * 30);
+	for (var i = 0; i < squadSizeT; ++i)
+	{
+		GetFormationPosition(F_TANK, i, "SQUARE");
+		var px = fPlatoonTX + xAdj;
+		var py = fPlatoonTY + yAdj;
+		if GetCellArea(F_TANK, px, py)
+		{
+			cellX = (px - oGrid.x) div oGrid.cellSize;
+			cellY = (py - oGrid.y) div oGrid.cellSize;
+			var nu = instance_create_layer(px, py, "Units", oFriendTank);
+			fSquadPTa[| i] = nu;
+			if i == 0 
+			{ 
+				fsquadLeadPTa = nu;
+				nu.uIsSquadLead = true;
+				nu.uSquadLead = nu;
+				nu.findGoal = true;
+
+			}
+			else
+			{
+				nu.uSquadLead = fsquadLeadPTa;
+				nu.uFollowTarget = fsquadLeadPTa;
+				nu.uFollow = true;
+			}
+			nu.uFormationPosition = i;
+			nu.uPlatoon = 5;
+			nu.uSquad = "fT_A";
+			nu.xAdj = xAdj;
+			nu.yAdj = yAdj;
+			nu.cellX = cellX;
+			nu.cellY = cellY;
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY+1);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY+1);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY+1);
+		}
+	}
+	//Squad Bravo
+	fPlatoonTX = room_width * 0.4;
+	fPlatoonTY = oGrid.max_y - (oGrid.cellSize * 24);
+	for (var i = 0; i < squadSizeT; ++i)
+	{
+		GetFormationPosition(F_TANK, i, "SQUARE");
+		var px = fPlatoonTX + xAdj;
+		var py = fPlatoonTY + yAdj;
+		if GetCellArea(F_TANK, px, py)
+		{
+			cellX = (px - oGrid.x) div oGrid.cellSize;
+			cellY = (py - oGrid.y) div oGrid.cellSize;
+			var nu = instance_create_layer(px, py, "Units", oFriendTank);
+			fSquadPTb[| i] = nu;
+			if i == 0 
+			{ 
+				fsquadLeadPTb = nu;
+				nu.uIsSquadLead = true;
+				nu.uSquadLead = nu;
+				nu.findGoal = true;
+			}
+			else
+			{
+				nu.uSquadLead = fsquadLeadPTb;
+				nu.uFollowTarget = fsquadLeadPTb;
+				nu.uFollow = true;
+			}
+			nu.uFormationPosition = i;
+			nu.uPlatoon = 5;
+			nu.uSquad = "fT_B";
+			nu.xAdj = xAdj;
+			nu.yAdj = yAdj;
+			nu.cellX = cellX;
+			nu.cellY = cellY;
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY+1);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY+1);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY+1);
+		}
+	}
+	//Squad Charlie
+	fPlatoonTX = room_width * 0.6;
+	fPlatoonTY = oGrid.max_y - (oGrid.cellSize * 24);
+	for (var i = 0; i < squadSizeT; ++i)
+	{
+		GetFormationPosition(F_TANK, i, "SQUARE");
+		var px = fPlatoonTX + xAdj;
+		var py = fPlatoonTY + yAdj;
+		if GetCellArea(F_TANK, px, py)
+		{
+			cellX = (px - oGrid.x) div oGrid.cellSize;
+			cellY = (py - oGrid.y) div oGrid.cellSize;
+			var nu = instance_create_layer(px, py, "Units", oFriendTank);
+			fSquadPTc[| i] = nu;
+			if i == 0 
+			{ 
+				fsquadLeadPTc = nu;
+				nu.uIsSquadLead = true;
+				nu.uSquadLead = nu;
+				nu.findGoal = true;
+			}
+			else
+			{
+				nu.uSquadLead = fsquadLeadPTc;
+				nu.uFollowTarget = fsquadLeadPTc;
+				nu.uFollow = true;
+			}
+			nu.uFormationPosition = i;
+			nu.uPlatoon = 5;
+			nu.uSquad = "fT_C";
+			nu.xAdj = xAdj;
+			nu.yAdj = yAdj;
+			nu.cellX = cellX;
+			nu.cellY = cellY;
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY+1);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY+1);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY+1);
+		}
+	}
+}
+
 //Spawn Foe Platoons
 //PLATOON 1 FOE
 if createePlatoon1
@@ -584,10 +726,10 @@ if createePlatoon1
 	createePlatoon1 = false;
 	//Squad Able
 	ePlatoon1X = room_width * 0.5;
-	ePlatoon1Y = room_height * 0.2;
+	ePlatoon1Y = oGrid.y + (oGrid.cellSize * 13);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon1X + xAdj;
 		var py = ePlatoon1Y + yAdj;
 		if GetCell(px, py)
@@ -621,10 +763,10 @@ if createePlatoon1
 	}
 	//Squad Bravo
 	ePlatoon1X = room_width * 0.55;
-	ePlatoon1Y = room_height * 0.15;
+	ePlatoon1Y = oGrid.y + (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon1X + xAdj;
 		var py = ePlatoon1Y + yAdj;
 		if GetCell(px, py)
@@ -658,10 +800,10 @@ if createePlatoon1
 	}
 	//Squad Charlie
 	ePlatoon1X = room_width * 0.45;
-	ePlatoon1Y = room_height * 0.15;
+	ePlatoon1Y = oGrid.y + (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon1X + xAdj;
 		var py = ePlatoon1Y + yAdj;
 		if GetCell(px, py)
@@ -695,10 +837,10 @@ if createePlatoon1
 	}
 	//Squad Delta
 	ePlatoon1X = room_width * 0.6;
-	ePlatoon1Y = room_height * 0.15;
+	ePlatoon1Y = oGrid.y + (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon1X + xAdj;
 		var py = ePlatoon1Y + yAdj;
 		if GetCell(px, py)
@@ -732,10 +874,10 @@ if createePlatoon1
 	}
 	//Squad Echo
 	ePlatoon1X = room_width * 0.4;
-	ePlatoon1Y = room_height * 0.15;
+	ePlatoon1Y = oGrid.y + (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon1X + xAdj;
 		var py = ePlatoon1Y + yAdj;
 		if GetCell(px, py)
@@ -775,10 +917,10 @@ if createePlatoon2
 	createePlatoon2 = false;
 	//Squad Able
 	ePlatoon2X = room_width * 0.75;
-	ePlatoon2Y = room_height * 0.2;
+	ePlatoon2Y = oGrid.y + (oGrid.cellSize * 13);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon2X + xAdj;
 		var py = ePlatoon2Y + yAdj;
 		if GetCell(px, py)
@@ -812,10 +954,10 @@ if createePlatoon2
 	}
 	//Squad Bravo
 	ePlatoon2X = room_width * 0.8;
-	ePlatoon2Y = room_height * 0.15;
+	ePlatoon2Y = oGrid.y + (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon2X + xAdj;
 		var py = ePlatoon2Y + yAdj;
 		if GetCell(px, py)
@@ -849,10 +991,10 @@ if createePlatoon2
 	}
 	//Squad Charlie
 	ePlatoon2X = room_width * 0.7;
-	ePlatoon2Y = room_height * 0.15;
+	ePlatoon2Y = oGrid.y + (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon2X + xAdj;
 		var py = ePlatoon2Y + yAdj;
 		if GetCell(px, py)
@@ -886,10 +1028,10 @@ if createePlatoon2
 	}
 	//Squad Delta
 	ePlatoon2X = room_width * 0.85;
-	ePlatoon2Y = room_height * 0.15;
+	ePlatoon2Y = oGrid.y + (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon2X + xAdj;
 		var py = ePlatoon2Y + yAdj;
 		if GetCell(px, py)
@@ -923,10 +1065,10 @@ if createePlatoon2
 	}
 	//Squad Echo
 	ePlatoon2X = room_width * 0.65;
-	ePlatoon2Y = room_height * 0.15;
+	ePlatoon2Y = oGrid.y + (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon2X + xAdj;
 		var py = ePlatoon2Y + yAdj;
 		if GetCell(px, py)
@@ -966,10 +1108,10 @@ if createePlatoon3
 	createePlatoon3 = false;
 	//Squad Able
 	ePlatoon3X = room_width * 0.25;
-	ePlatoon3Y = room_height * 0.2;
+	ePlatoon3Y = oGrid.y + (oGrid.cellSize * 13);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon3X + xAdj;
 		var py = ePlatoon3Y + yAdj;
 		if GetCell(px, py)
@@ -1003,10 +1145,10 @@ if createePlatoon3
 	}
 	//Squad Bravo
 	ePlatoon3X = room_width * 0.3;
-	ePlatoon3Y = room_height * 0.15;
+	ePlatoon3Y = oGrid.y + (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon3X + xAdj;
 		var py = ePlatoon3Y + yAdj;
 		if GetCell(px, py)
@@ -1040,10 +1182,10 @@ if createePlatoon3
 	}
 	//Squad Charlie
 	ePlatoon3X = room_width * 0.2;
-	ePlatoon3Y = room_height * 0.15;
+	ePlatoon3Y = oGrid.y + (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon3X + xAdj;
 		var py = ePlatoon3Y + yAdj;
 		if GetCell(px, py)
@@ -1077,10 +1219,10 @@ if createePlatoon3
 	}
 	//Squad Delta
 	ePlatoon3X = room_width * 0.35;
-	ePlatoon3Y = room_height * 0.15;
+	ePlatoon3Y = oGrid.y + (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon3X + xAdj;
 		var py = ePlatoon3Y + yAdj;
 		if GetCell(px, py)
@@ -1114,10 +1256,10 @@ if createePlatoon3
 	}
 	//Squad Echo
 	ePlatoon3X = room_width * 0.15;
-	ePlatoon3Y = room_height * 0.15;
+	ePlatoon3Y = oGrid.y + (oGrid.cellSize * 6);
 	for (var i = 0; i < squadSize; ++i)
 	{
-		GetFormationPosition(i, "SQUARE", false);
+		GetFormationPosition(E_RIFLEMAN, i, "SQUARE");
 		var px = ePlatoon3X + xAdj;
 		var py = ePlatoon3Y + yAdj;
 		if GetCell(px, py)
@@ -1147,6 +1289,148 @@ if createePlatoon3
 			nu.cellX = cellX;
 			nu.cellY = cellY;
 			mp_grid_add_cell(global.NavGrid, cellX, cellY);
+		}
+	}
+}
+
+//TANK PLATOON
+if createePlatoonT
+{
+	createePlatoonT = false;
+	//Squad Able
+	ePlatoonTX = room_width * 0.5;
+	ePlatoonTY = oGrid.y + (oGrid.cellSize * 30);
+	for (var i = 0; i < squadSizeT; ++i)
+	{
+		GetFormationPosition(E_TANK, i, "SQUARE");
+		var px = ePlatoonTX + xAdj;
+		var py = ePlatoonTY + yAdj;
+		if GetCellArea(E_TANK, px, py)
+		{
+			cellX = (px - oGrid.x) div oGrid.cellSize;
+			cellY = (py - oGrid.y) div oGrid.cellSize;
+			var nu = instance_create_layer(px, py, "Units", oFoeTank);
+			eSquadPTa[| i] = nu;
+			if i == 0 
+			{ 
+				esquadLeadPTa = nu;
+				nu.uIsSquadLead = true;
+				nu.uSquadLead = nu;
+				nu.findGoal = true;
+
+			}
+			else
+			{
+				nu.uSquadLead = esquadLeadPTa;
+				nu.uFollowTarget = esquadLeadPTa;
+				nu.uFollow = true;
+			}
+			nu.uFormationPosition = i;
+			nu.uPlatoon = 5;
+			nu.uSquad = "eT_A";
+			nu.xAdj = xAdj;
+			nu.yAdj = yAdj;
+			nu.cellX = cellX;
+			nu.cellY = cellY;
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY+1);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY+1);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY+1);
+		}
+	}
+	//Squad Bravo
+	ePlatoonTX = room_width * 0.4;
+	ePlatoonTY = oGrid.y + (oGrid.cellSize * 24);
+	for (var i = 0; i < squadSizeT; ++i)
+	{
+		GetFormationPosition(E_TANK, i, "SQUARE");
+		var px = ePlatoonTX + xAdj;
+		var py = ePlatoonTY + yAdj;
+		if GetCellArea(E_TANK, px, py)
+		{
+			cellX = (px - oGrid.x) div oGrid.cellSize;
+			cellY = (py - oGrid.y) div oGrid.cellSize;
+			var nu = instance_create_layer(px, py, "Units", oFoeTank);
+			eSquadPTb[| i] = nu;
+			if i == 0 
+			{ 
+				esquadLeadPTb = nu;
+				nu.uIsSquadLead = true;
+				nu.uSquadLead = nu;
+				nu.findGoal = true;
+			}
+			else
+			{
+				nu.uSquadLead = esquadLeadPTb;
+				nu.uFollowTarget = esquadLeadPTb;
+				nu.uFollow = true;
+			}
+			nu.uFormationPosition = i;
+			nu.uPlatoon = 5;
+			nu.uSquad = "eT_B";
+			nu.xAdj = xAdj;
+			nu.yAdj = yAdj;
+			nu.cellX = cellX;
+			nu.cellY = cellY;
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY+1);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY+1);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY+1);
+		}
+	}
+	//Squad Charlie
+	ePlatoonTX = room_width * 0.6;
+	ePlatoonTY = oGrid.y + (oGrid.cellSize * 24);
+	for (var i = 0; i < squadSizeT; ++i)
+	{
+		GetFormationPosition(E_TANK, i, "SQUARE");
+		var px = ePlatoonTX + xAdj;
+		var py = ePlatoonTY + yAdj;
+		if GetCellArea(E_TANK, px, py)
+		{
+			cellX = (px - oGrid.x) div oGrid.cellSize;
+			cellY = (py - oGrid.y) div oGrid.cellSize;
+			var nu = instance_create_layer(px, py, "Units", oFoeTank);
+			eSquadPTc[| i] = nu;
+			if i == 0 
+			{ 
+				esquadLeadPTc = nu;
+				nu.uIsSquadLead = true;
+				nu.uSquadLead = nu;
+				nu.findGoal = true;
+			}
+			else
+			{
+				nu.uSquadLead = esquadLeadPTc;
+				nu.uFollowTarget = esquadLeadPTc;
+				nu.uFollow = true;
+			}
+			nu.uFormationPosition = i;
+			nu.uPlatoon = 5;
+			nu.uSquad = "eT_C";
+			nu.xAdj = xAdj;
+			nu.yAdj = yAdj;
+			nu.cellX = cellX;
+			nu.cellY = cellY;
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY-1);
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY);
+			mp_grid_add_cell(global.NavGrid, cellX-1, cellY+1);
+			mp_grid_add_cell(global.NavGrid, cellX, cellY+1);
+			mp_grid_add_cell(global.NavGrid, cellX+1, cellY+1);
 		}
 	}
 }

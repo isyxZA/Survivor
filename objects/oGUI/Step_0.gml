@@ -3,6 +3,12 @@ mouseY = device_mouse_y_to_gui(0);
 x = mouseX;
 y = mouseY;
 
+if keyboard_check_pressed(ord("L"))
+{
+	if optionsDisplay { optionsDisplay = false; }
+		else { optionsDisplay = true; }
+}
+
 //Player UI buttons
 //Left tab
 if point_distance(mouseX, mouseY, playerUIlx, playerUIy1) < 10 { touchL1 = true; } else { touchL1 = false; }
@@ -19,20 +25,29 @@ if point_distance(mouseX, mouseY, playerUIrx, playerUIy5) < 10 { touchR5 = true;
 
 if optionsDisplay
 {
+	if optionsUIy != optionsUIyTarget { optionsUIy = lerp(optionsUIy, optionsUIyTarget, 0.1); }
 	//Selection boxes for dialog options
-	var opt1 = collision_rectangle(playerUIxT, playerUIyT - 4, playerUIxT + (playerUIw * 0.9), playerUIyT - 20, oGUI, false, false);
-	if opt1 != noone
-	{
-		option1 = true;
-	}
-	else
-	{
-		option1 = false;
-	}
+	var opt1 = collision_rectangle(playerUIxT, optionsUIy - 60, playerUIxT + (playerUIw * 0.9), optionsUIy - 80, oGUI, false, false);
+	var opt2 = collision_rectangle(playerUIxT, optionsUIy - 30, playerUIxT + (playerUIw * 0.9), optionsUIy - 50, oGUI, false, false);
+	var opt3 = collision_rectangle(playerUIxT, optionsUIy, playerUIxT + (playerUIw * 0.9), optionsUIy - 20, oGUI, false, false);
+	
+	if opt1 != noone { option1 = true; option2 = false; option3 = false; }
+		else { option1 = false; }
+	if opt2 != noone { option2 = true; option1 = false; option3 = false; }
+		else { option2 = false; }
+	if opt3 != noone { option3 = true; option1 = false; option2 = false; }
+		else { option3 = false; }
+		
+	if option1 || option2 || option3 { optionsUItouch = true; }
+		else { optionsUItouch = false; }
 }
 else
 {
 	option1 = false;
+	option2 = false;
+	option3 = false;
+	optionsUItouch = false;
+	if optionsUIy != optionsUIyTarget + 80 { optionsUIy = lerp(optionsUIy, optionsUIyTarget + 80, 0.1); }
 }
 
 if point_distance(mouseX, mouseY, playerUImx, playerUImy) < (playerUIw * 0.6) { playerUItouch = true; } else { playerUItouch = false; }
@@ -51,26 +66,204 @@ if mouse_check_button_pressed(global.LMOUSE)
 				if canTalk 
 				{ 
 					//If we are talking to an individual unit
-					if oControl.selectedObj != noone
+					if oControl.selectedObj != noone && oGUI.dialogLevel == 0
 					{
-						//Get the level of dialog
-						if oDialog.menuLevel <= ACTIONMENU
-						{
-							GreetOne(uType);
-							GetReply(uType, oControl.selectedObj, oDialog.menuLevel);
-						}
-						//ex. chatting, trading, orders etc...
-						//Retreive a relevant dialog line
-						//GetDialog(uType, true, false, true); 
+						GreetOne(uType);
+						GetReply(uType, oControl.selectedObj, 0);
 					}
-					//Broadcast to nearby units and try to get a dialog started
 					else
 					{
+						//Level 0 is first contact
+						oGUI.dialogLevel = 0;
 						GreetAll(uType);
+						//Broadcast to nearby units and try to get a dialog started
 						GetDialogPartner();
 					}
 				} 
 			}
+		}
+		if oDialog.menuActive { with oDialog { SetActionMenu(RESETMENU); } }
+	}
+	
+	//Dialog option selection
+	if option1
+	{
+		//Friendly dialog branch
+		optionsDisplay = false;
+		with oPlayer
+		{
+			var dialog = string(oGUI.optionsDialog[| 0]);
+			ds_list_add(dialogList, dialog);
+			if dialogTime == 0 
+			{ 
+				showDialog = true;
+				dText = dialog;
+			}
+		}
+		switch dialogLevel
+		{
+			case 1:
+				dialogBranch = "FRIENDLY";
+				if oControl.selectedObj != noone
+				{
+					with oControl.selectedObj
+					{
+						GetFriendlyDialog(uType, oGUI.dialogLevel);
+					}
+				}
+				break;
+			default:
+				switch dialogBranch
+				{
+					case "FRIENDLY":
+						if oControl.selectedObj != noone
+						{
+							with oControl.selectedObj
+							{
+								GetFriendlyDialog(uType, oGUI.dialogLevel);
+							}
+						}
+						break;
+					case "ANGRY":
+						if oControl.selectedObj != noone
+						{
+							with oControl.selectedObj
+							{
+								GetAggroDialog(uType, oGUI.dialogLevel);
+							}
+						}
+						break;
+					case "TRADE":
+						if oControl.selectedObj != noone
+						{
+							with oControl.selectedObj
+							{
+								GetTradeDialog(uType, oGUI.dialogLevel);
+							}
+						}
+						break;
+				}
+				break;
+		}
+	}
+	else if option2
+	{
+		//Aggressive dialog branch
+		optionsDisplay = false;
+		with oPlayer
+		{
+			var dialog = string(oGUI.optionsDialog[| 1]);
+			ds_list_add(dialogList, dialog);
+			if dialogTime == 0 
+			{ 
+				showDialog = true;
+				dText = dialog;
+			}
+		}
+		switch dialogLevel
+		{
+			case 1:
+				dialogBranch = "ANGRY";
+				if oControl.selectedObj != noone
+				{
+					with oControl.selectedObj
+					{
+						GetAggroDialog(uType, oGUI.dialogLevel);
+					}
+				}
+				break;
+			default:
+				switch dialogBranch
+				{
+					case "FRIENDLY":
+						if oControl.selectedObj != noone
+						{
+							with oControl.selectedObj
+							{
+								GetFriendlyDialog(uType, oGUI.dialogLevel);
+							}
+						}
+						break;
+					case "ANGRY":
+						if oControl.selectedObj != noone
+						{
+							with oControl.selectedObj
+							{
+								GetAggroDialog(uType, oGUI.dialogLevel);
+							}
+						}
+						break;
+					case "TRADE":
+						if oControl.selectedObj != noone
+						{
+							with oControl.selectedObj
+							{
+								GetTradeDialog(uType, oGUI.dialogLevel);
+							}
+						}
+						break;
+				}
+				break;
+		}
+	}
+	else if option3
+	{
+		//Trade dialog branch
+		optionsDisplay = false;
+		with oPlayer
+		{
+			var dialog = string(oGUI.optionsDialog[| 2]);
+			ds_list_add(dialogList, dialog);
+			if dialogTime == 0 
+			{ 
+				showDialog = true;
+				dText = dialog;
+			}
+		}
+		switch dialogLevel
+		{
+			case 1:
+				dialogBranch = "TRADE";
+				if oControl.selectedObj != noone
+				{
+					with oControl.selectedObj
+					{
+						GetTradeDialog(uType, oGUI.dialogLevel);
+					}
+				}
+				break;
+			default:
+				switch dialogBranch
+				{
+					case "FRIENDLY":
+						if oControl.selectedObj != noone
+						{
+							with oControl.selectedObj
+							{
+								GetFriendlyDialog(uType, oGUI.dialogLevel);
+							}
+						}
+						break;
+					case "ANGRY":
+						if oControl.selectedObj != noone
+						{
+							with oControl.selectedObj
+							{
+								GetAggroDialog(uType, oGUI.dialogLevel);
+							}
+						}
+						break;
+					case "TRADE":
+						if oControl.selectedObj != noone
+						{
+							with oControl.selectedObj
+							{
+								GetTradeDialog(uType, oGUI.dialogLevel);
+							}
+						}
+						break;
+				}
+				break;
 		}
 	}
 }
@@ -87,27 +280,23 @@ else
 				if canTalk 
 				{ 
 					//If we are talking to an individual unit
-					if oControl.selectedObj != noone
+					if oControl.selectedObj != noone && oGUI.dialogLevel == 0
 					{
-						//Get the level of dialog
-						if oDialog.menuLevel <= ACTIONMENU
-						{
-							GreetOne(uType);
-							GetReply(uType, oControl.selectedObj, oDialog.menuLevel);
-						}
-						//ex. chatting, trading, orders etc...
-						//Retreive a relevant dialog line
-						//GetDialog(uType, true, false, true); 
+						GreetOne(uType);
+						GetReply(uType, oControl.selectedObj, 0);
 					}
-					//Broadcast to nearby units and try to get a dialog started
 					else
 					{
+						//Level 0 is first contact
+						oGUI.dialogLevel = 0;
 						GreetAll(uType);
+						//Broadcast to nearby units and try to get a dialog started
 						GetDialogPartner();
 					}
 				} 
 			}
 		}
+		if oDialog.menuActive { with oDialog { SetActionMenu(RESETMENU); } }
 	}
 }
 
@@ -151,6 +340,9 @@ else
 {
 	selectedUI = false;
 	selectedUItouch = false;
+	dialogLevel = 0;
+	optionsDisplay = false;
+	dialogBranch = "ZERO";
 	if selectedUIx != selectedUIxStart 
 	{ 
 		selectedUIx = lerp(selectedUIx, selectedUIxStart, 0.1); 
@@ -158,6 +350,7 @@ else
 	}
 	playerUIxR = playerUIx + (playerUIw * 0.62);//Rank X
 	if !ds_list_empty(selectedDialog) { ds_list_clear(selectedDialog); }
+	if !ds_list_empty(optionsDialog) { ds_list_clear(optionsDialog); }
 }
 
-if playerUItouch || selectedUItouch || menuUItouch { oControl.canSelect = false; } else { oControl.canSelect = true; }
+if playerUItouch || selectedUItouch || menuUItouch || optionsUItouch { oControl.canSelect = false; } else { oControl.canSelect = true; }

@@ -53,6 +53,20 @@ function GetWaypoint(type, goalX, goalY)
 				waypointY = y;
 				return false;
 			}
+		case F_TANK://Friend Tank
+		case E_TANK://Foe Tank
+			if GetCellArea(uType, goalX, goalY)
+			{
+				waypointX = goalX;
+				waypointY = goalY;
+				return true;
+			}
+			else
+			{
+				waypointX = x;
+				waypointY = y;
+				return false;
+			}
 		default:
 			return false;
 	}

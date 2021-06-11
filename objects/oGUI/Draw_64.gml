@@ -13,6 +13,42 @@ if selectedUI
 			draw_text(selectedUIxT, selectedUIyT - (ysp-(i*30)), string(dst));
 		}
 	}
+	
+	if optionsDisplay
+	{
+		draw_set_color(c_black);
+		draw_set_alpha(0.5);
+		//Options 1
+		draw_rectangle(playerUIxT, optionsUIy - 60, playerUIxT + (playerUIw * 0.9), optionsUIy - 80, false);
+		//Option 2
+		draw_rectangle(playerUIxT, optionsUIy - 30, playerUIxT + (playerUIw * 0.9), optionsUIy - 50, false);
+		//Option 3
+		draw_rectangle(playerUIxT, optionsUIy, playerUIxT + (playerUIw * 0.9), optionsUIy - 20, false);
+	
+		draw_set_color(c_silver);
+		draw_rectangle(playerUIxT, optionsUIy - 60, playerUIxT + (playerUIw * 0.9), optionsUIy - 80, true);
+		draw_rectangle(playerUIxT, optionsUIy - 30, playerUIxT + (playerUIw * 0.9), optionsUIy - 50, true);
+		draw_rectangle(playerUIxT, optionsUIy, playerUIxT + (playerUIw * 0.9), optionsUIy - 20, true);
+	
+		if !ds_list_empty(optionsDialog)
+		{
+			draw_set_font(fnt10);
+			draw_set_halign(fa_left);
+			draw_set_color(c_white);
+			draw_set_alpha(1);
+	
+			draw_text(playerUIxT,optionsUIy - 70, string(optionsDialog[| 0]));
+			draw_text(playerUIxT,optionsUIy - 40, string(optionsDialog[| 1]));
+			draw_text(playerUIxT,optionsUIy - 10, string(optionsDialog[| 2]));
+		}
+	
+		/*
+		if option1 { draw_text(x, y, "Option1"); }
+		if option2 { draw_text(x, y, "Option2"); }
+		if option3 { draw_text(x, y, "Option3"); }
+		*/
+	}
+	
 	draw_sprite_ext(sUIa, 0, selectedUIx, selectedUIy, 0.9, 0.9, 0, c_white, 0.8);
 	if oControl.selectedObj != noone
 	{
@@ -54,10 +90,6 @@ if selectedUI
 	}
 }
 
-if option1
-{
-	draw_text(x, y, "Option1");
-}
 
 //Player UI
 if playerUI
@@ -71,7 +103,7 @@ if playerUI
 		for (var i = 0; i < dss; ++i)
 		{
 			var dst = playerDialog[| i];
-			draw_text(playerUIxT, playerUIyT - (ysp-(i*30)), string(dst));
+			draw_text(playerUIxT, (optionsUIy - optionsUIh) - (ysp-(i*30)), string(dst));
 		}
 	}
 	
@@ -164,13 +196,7 @@ if showDebug
 	{
 		txt6 = "False";
 	}
-	var txt7 = "";
-	var txt8 = "";
-	if instance_exists(oBattlefield)
-	{
-		txt7 = string(ds_list_size(ds_list_find_value(oBattlefield.fPlatoon1, 0)));
-		txt8 = string(ds_list_size(ds_list_find_value(oBattlefield.ePlatoon1, 0)));
-	}
+	var txt7 = string(dialogLevel);
 
 	draw_set_font(fnt8);
 	draw_set_halign(fa_left);
@@ -180,7 +206,6 @@ if showDebug
 	draw_text(guiWidth * 0.91, guiHeight * 0.845, "Selected Unit: " + txt4);
 	draw_text(guiWidth * 0.91, guiHeight * 0.855, "Can Select: " + txt5);
 	draw_text(guiWidth * 0.91, guiHeight * 0.865, "Active Menu: " + txt6);
-	draw_text(guiWidth * 0.91, guiHeight * 0.875, "Platoon1 S1: " + txt7);
-	draw_text(guiWidth * 0.91, guiHeight * 0.885, "Platoon2 S1: " + txt8);
+	draw_text(guiWidth * 0.91, guiHeight * 0.875, "Dialog Level: " + txt7);
 	SetTextDefault();
 }

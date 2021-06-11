@@ -17,25 +17,50 @@ if menuActive
 	}
 	
 	//Button actions
-	if  mouse_check_button_pressed(global.LMOUSE)
+	if mouse_check_button_pressed(global.LMOUSE)
 	{
-		switch touchCount
+		switch menuLevel
 		{
-			case -1://Header button
-				menuDrag = true;
+			case RESETMENU:
 				break;
-			case 0:
-				switch menuLevel
+			case ACTIONMENU:
+				switch touchCount
 				{
-					case ACTIONMENU:
-						//Begin dialog
+					case -1://Header button
+						menuDrag = true;
 						break;
-				}
-				break;
-			case 1://Button 1
-				switch menuLevel
-				{
-					case ACTIONMENU:
+					case 0://Button 0
+						//Dialog
+						if instance_exists(oPlayer) && !oControl.canSelect
+						{
+							with oPlayer 
+							{ 
+								if canTalk 
+								{ 
+									//If we are talking to an individual unit
+									if oControl.selectedObj != noone && oGUI.dialogLevel == 0
+									{
+										GreetOne(uType);
+										GetReply(uType, oControl.selectedObj, 0);
+									}
+									else
+									{
+										//Level 0 is first contact
+										oGUI.dialogLevel = 0;
+										GreetAll(uType);
+										//Broadcast to nearby units and try to get a dialog started
+										GetDialogPartner();
+									}
+								} 
+							}
+						}
+						SetActionMenu(RESETMENU);
+						break;
+					case 1://Button 1
+						//Trade
+						SetActionMenu(RESETMENU);
+						break;
+					case 2://Button 2
 						//Follow
 						oPlayer.uFollowTarget = oControl.selectedObj;
 						if !oPlayer.uFollow 
@@ -46,21 +71,42 @@ if menuActive
 						}
 						SetActionMenu(RESETMENU);
 						break;
-				}
-				break;
-			case 2://Button 2
-				switch menuLevel
-				{
-					case ACTIONMENU:
-						//Follow
+					case 3://Button 3
+						//Attack
 						break;
 				}
 				break;
-			case 3://Button 3
-				switch menuLevel
+			case ACTIONMENU_E:
+				switch touchCount
 				{
-					case ACTIONMENU:
-						//Attack
+					case -1://Header button
+						menuDrag = true;
+						break;
+					case 0://Button 0
+						//Attack Enemy
+						if instance_exists(oPlayer) && !oControl.canSelect
+						{
+							with oPlayer 
+							{ 
+								uTarget = oControl.selectedObj;
+								uShootRifle = true;
+								if alarm[6] > 0 { }
+									else { alarm[6] = room_speed; }
+								
+							}
+						}
+						SetActionMenu(RESETMENU);
+						break;
+					case 1://Button 1
+						//Follow
+						oPlayer.uFollowTarget = oControl.selectedObj;
+						if !oPlayer.uFollow 
+						{
+							oPlayer.uFollow = true;
+							oPlayer.uFollowing = false;
+							oPlayer.alarm[4] = -1;
+						}
+						SetActionMenu(RESETMENU);
 						break;
 				}
 				break;
@@ -74,7 +120,6 @@ if menuActive
 	
 	if touchHeader || touchButton { oGUI.menuUItouch = true; }
 		else { oGUI.menuUItouch = false; }
-		
 }
 else
 {

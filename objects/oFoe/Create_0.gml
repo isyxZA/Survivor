@@ -5,3 +5,4 @@ GetBio(E_RIFLEMAN);
 SetStats(uType);
 InitDialog(uType);
 InitMovement(uType);
+InitAttack(uType);

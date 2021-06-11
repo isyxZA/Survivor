@@ -4,3 +4,5 @@ GetBio(PLAYER);
 SetStats(uType);
 InitDialog(uType);
 InitMovement(uType);
+InitAttack(uType);
+//camera_set_view_target(oCamera.my_camera, id);
