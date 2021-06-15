@@ -190,7 +190,43 @@ if uFollow
 
 if moving 
 {
+	if uCanShoot 
+	{ 
+		uCanShoot = false;
+		uShootRifle = false;
+		uThrowGrenade = false;
+		uShooting = false;
+		uTarget = -1;
+		alarm[6] = -1;
+	}
 	AdjustTransform(uType); 
+}
+else 
+{
+	if uReloading
+	{
+		if uCanShoot 
+		{ 
+			uCanShoot = false;
+			uShootRifle = false;
+			uThrowGrenade = false;
+			uShooting = false;
+			uTarget = -1;
+			alarm[6] = -1;
+		}
+	}
+	else
+	{
+		if !uCanShoot { uCanShoot = true; }
+		if uShooting
+		{
+			if instance_exists(uTarget) { rotationTarget = point_direction(x, y, uTarget.x, uTarget.y); }
+			if image_angle != rotationTarget
+			{
+				image_angle += angle_difference(rotationTarget, image_angle) * 0.2;
+			}
+		}
+	}
 }
 
 if showDialog

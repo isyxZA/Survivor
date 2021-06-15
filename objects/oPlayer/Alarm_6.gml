@@ -1,45 +1,82 @@
-/// @description Fire rifle
-if uCanShoot && instance_exists(uTarget)
+/// @description Shoot/Throw Grenade
+if uCanShoot
 {
-	if uShootRifle
+	if instance_exists(uTarget)
 	{
-		if uRifleAmmo > 0
+		if uShootRifle
 		{
-			if point_distance(x, y, uTarget.x, uTarget.y) < uAttackRange
+			if uRifleAmmo > 0
 			{
-				uBulletType = "RIFLE";
-				uRifleAmmo -= 1;
-				var bsx = lengthdir_x(20, image_angle);
-				var bsy = lengthdir_y(20, image_angle);
-				SpawnBullet(uType, B_RIFLESPD, bsx, bsy, uTarget.x, uTarget.y);
-				++uBurstCount;
-				if uBurstCount < 3 { alarm[6] = room_speed; }
-					else { uBurstCount = 0; alarm[6] = room_speed * 10; }
+				if point_distance(x, y, uTarget.x, uTarget.y) < uAttackRange
+				{
+					uRifleAmmo -= 1;
+					var bsx = x + lengthdir_x(20, image_angle);
+					var bsy = y + lengthdir_y(20, image_angle);
+					if Chance(uAccuracy)
+					{
+						SpawnBullet(B_RIFLESPD, B_RIFLE, bsx, bsy, uTarget.x, uTarget.y);
+						var bs = choose(aRifleShot01, aRifleShot02, aRifleShot03);
+						audio_play_sound_on(uEmit, bs, false, 10);
+					}
+					else
+					{
+						var bxt = uTarget.x + choose(irandom_range(-128, -32), irandom_range(32, 128));
+						var byt = uTarget.y + choose(irandom_range(-128, -32), irandom_range(32, 128));
+						SpawnBullet(B_RIFLESPD, B_RIFLE, bsx, bsy, bxt, byt);
+						var bs = choose(aRifleShot01, aRifleShot02, aRifleShot03);
+						audio_play_sound_on(uEmit, bs, false, 10);
+					}
+					with instance_create_layer(bsx, bsy, "Units", oMuzzleFlash)
+					{
+						fIndex = sRifleFlash;
+						fAngle = other.image_angle;
+						alarm[0] = 8;
+					}
+					++uBurstCount;
+					if uBurstCount < 3 { alarm[6] = room_speed * 0.2; }
+						else { uBurstCount = 0; alarm[6] = room_speed * 2; }
+				}
+				else
+				{
+					//Display a dialog comment here to alert the player\\
+					uShooting = false;
+				}
 			}
 			else
 			{
-				//Display a dialog comment here to alert the player\\
+				//Check if the unit has ammo in its inventory
+				//If it does then reload
+				//Display reload dialog
+				uShooting = false;
+				uReloading = true;
 			}
 		}
-		else
+		else if uThrowGrenade
 		{
-			//Check if the unit has ammo in its inventory
-			//If it does then reload
-			//Display reload dialog
+			if point_distance(x, y, uTarget.x, uTarget.y) < (uAttackRange * 0.5)
+			{
+				uGrenadeAmmo -= 1;
+				var bsx = x + lengthdir_x(20, image_angle);
+				var bsy = y + lengthdir_y(20, image_angle);
+				var btr = point_direction(x, y, uTarget.x, uTarget.y);
+				var btx = x + lengthdir_x(uAttackRange * 0.5, btr);
+				var bty = y + lengthdir_y(uAttackRange * 0.5, btr);
+				SpawnBullet(B_GRENADESPD, B_GRENADE, bsx, bsy, btx, bty);
+			}
 		}
 	}
-	else if uThrowGrenade
+	else
 	{
-		if point_distance(x, y, uTarget.x, uTarget.y) < (uAttackRange * 0.5)
-		{
-			uBulletType = "GRENADE";
-			uGrenadeAmmo -= 1;
-			var bsx = lengthdir_x(20, image_angle);
-			var bsy = lengthdir_y(20, image_angle);
-			var btr = point_direction(x, y, uTarget.x, uTarget.y);
-			var btx = lengthdir_x(uAttackRange * 0.5, btr);
-			var bty = lengthdir_y(uAttackRange * 0.5, btr);
-			SpawnBullet(uType, B_GRENADESPD, bsx, bsy, btx, bty);
-		}
+		uTarget = -1;
+		uShootRifle = false;
+		uThrowGrenade = false;
+		uShooting = false;
 	}
+}
+else
+{
+	uTarget = -1;
+	uShootRifle = false;
+	uThrowGrenade = false;
+	uShooting = false;
 }

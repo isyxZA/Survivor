@@ -1,0 +1,1 @@
+draw_sprite_ext(eSprite, image_index, x, y, 1, 1, eAngle, c_white, 1);

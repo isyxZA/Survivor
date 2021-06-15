@@ -2,6 +2,9 @@
 /// @param type Type of unit
 function SetStats(type)
 {
+	uEmit = audio_emitter_create();
+	audio_emitter_falloff(uEmit, 200, 2000, 1.5);
+	audio_emitter_position(uEmit, x, y, 0);
 	//Unit specific stats
 	switch type 
 	{

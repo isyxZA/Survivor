@@ -10,6 +10,7 @@ function AdjustTransform(type)
 				if uIsSquadLead { alarm[5] = room_speed; }
 				moving = false; 
 				pSpeed = 0;
+				path_clear_points(path);
 			}
 			break;
 		case F_RIFLEMAN:
@@ -21,6 +22,7 @@ function AdjustTransform(type)
 				if uIsSquadLead { alarm[5] = room_speed; }
 				moving = false;
 				pSpeed = 0; 
+				path_clear_points(path);
 			}
 			break;
 	}
@@ -31,4 +33,6 @@ function AdjustTransform(type)
 	{
 		image_angle += angle_difference(rotationTarget, image_angle) * 0.2;
 	}
+	
+	audio_emitter_position(uEmit, x, y, 0);
 }

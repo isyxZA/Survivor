@@ -1,3 +1,7 @@
+draw_sprite_ext(sWaypoint, 0, frontLX, frontLY, 1.5, 1.5, 0, c_red, 1);
+draw_sprite_ext(sWaypoint, 0, frontCX, frontCY, 1.5, 1.5, 0, c_red, 1);
+draw_sprite_ext(sWaypoint, 0, frontRX, frontRY, 1.5, 1.5, 0, c_red, 1);
+
 draw_sprite(sWaypoint, 0, fsquad1Ax, fsquad1Ay);
 draw_sprite(sWaypoint, 0, fsquad1Bx, fsquad1By);
 draw_sprite(sWaypoint, 0, fsquad1Cx, fsquad1Cy);

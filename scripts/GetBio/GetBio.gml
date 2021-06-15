@@ -10,7 +10,6 @@ function GetBio(type)
 	uFather = 0;
 	uMother = 0;
 	*/
-	
 	switch type 
 	{
 		case PLAYER:

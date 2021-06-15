@@ -1,4 +1,4 @@
-/// @description Search for a nearby unit to begin a dialog with
+/// @description Player search for a nearby unit to begin a dialog with
 function GetDialogPartner()
 {
 	var cList = ds_list_create();
