@@ -35,6 +35,8 @@ function Move(type, xGoal, yGoal)
 			break;
 		case F_TANK:
 		case E_TANK:
+		case F_LAV:
+		case E_LAV:
 			mp_grid_clear_cell(global.NavGrid, cellX-1, cellY-1);
 			mp_grid_clear_cell(global.NavGrid, cellX, cellY-1);
 			mp_grid_clear_cell(global.NavGrid, cellX+1, cellY-1);

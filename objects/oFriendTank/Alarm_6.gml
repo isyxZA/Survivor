@@ -25,12 +25,12 @@ if uCanShoot
 						audio_play_sound_on(uEmit, aCannonShot01, false, 10);
 					}
 					with instance_create_layer(bsx, bsy, "Units", oMuzzleFlash)
-				{
-					fIndex = sCannonFlash;
-					fAngle = other.turret_angle;
-					image_speed = 0.1;
-					alarm[0] = 20;
-				}
+					{
+						fIndex = sCannonFlash;
+						fAngle = other.turret_angle;
+						image_speed = 0.1;
+						alarm[0] = 20;
+					}
 					++uBurstCount;
 					if uBurstCount < 2 { alarm[6] = room_speed * 4; }
 						else { uBurstCount = 0; alarm[6] = room_speed * 12; }
@@ -50,13 +50,13 @@ if uCanShoot
 				uReloading = true;
 			}
 		}
-		else if uShootMg
+		else if uShootMG
 		{
 			if point_distance(x, y, uTarget.x, uTarget.y) < uAttackRange
 			{
 				uMGAmmo -= 1;
-				var bsx = (x + 12) + lengthdir_x(32, turret_angle);
-				var bsy = y + lengthdir_y(32, turret_angle);
+				var bsx = x + lengthdir_x(60, turret_angle);
+				var bsy = y + lengthdir_y(60, turret_angle);
 				if Chance(uAccuracy)
 				{
 					SpawnBullet(B_MGSPD, B_MG, bsx, bsy, uTarget.x, uTarget.y);
@@ -91,7 +91,7 @@ if uCanShoot
 		{
 			uTarget = -1;
 			uShootMain = false;
-			uShootMg = false;
+			uShootMG = false;
 			uShooting = false;
 		}
 	}
@@ -100,6 +100,6 @@ else
 {
 	uTarget = -1;
 	uShootMain = false;
-	uShootMg = false;
+	uShootMG = false;
 	uShooting = false;
 }

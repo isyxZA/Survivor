@@ -45,7 +45,7 @@ function InitAttack(type)
 			uMainAmmo = 100;
 			uShootMain = false;
 			uMGAmmo = 100;
-			uShootMg = false;
+			uShootMG = false;
 			//uSmokeAmmo = 2;
 			//uPopSmoke = false;
 			alarm[0] = (room_speed * 8) + ds_list_find_index(global.FriendList, id) + irandom_range(2, 24);
@@ -57,7 +57,31 @@ function InitAttack(type)
 			uMainAmmo = 100;
 			uShootMain = false;
 			uMGAmmo = 100;
-			uShootMg = false;
+			uShootMG = false;
+			//uSmokeAmmo = 2;
+			//uPopSmoke = false;
+			alarm[0] = (room_speed * 8) + ds_list_find_index(global.FoeList, id) + irandom_range(2, 24);
+			break;
+		case F_LAV:
+			uAttackRange = oGrid.cellSize * 30;
+			uReloadTime = room_speed;
+			uAccuracy = 0.2;
+			u30MMAmmo = 100;
+			uShoot30MM = false;
+			uMGAmmo = 100;
+			uShootMG = false;
+			//uSmokeAmmo = 2;
+			//uPopSmoke = false;
+			alarm[0] = (room_speed * 8) + ds_list_find_index(global.FriendList, id) + irandom_range(2, 24);
+			break;
+		case E_LAV:
+			uAttackRange = oGrid.cellSize * 30;
+			uReloadTime = room_speed;
+			uAccuracy = 0.2;
+			u30MMAmmo = 100;
+			uShoot30MM = false;
+			uMGAmmo = 100;
+			uShootMG = false;
 			//uSmokeAmmo = 2;
 			//uPopSmoke = false;
 			alarm[0] = (room_speed * 8) + ds_list_find_index(global.FoeList, id) + irandom_range(2, 24);

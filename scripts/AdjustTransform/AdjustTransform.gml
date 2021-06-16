@@ -17,6 +17,8 @@ function AdjustTransform(type)
 		case E_RIFLEMAN:
 		case F_TANK:
 		case E_TANK:
+		case F_LAV:
+		case E_LAV:
 			if path_position == 1 
 			{ 
 				if uIsSquadLead { alarm[5] = room_speed; }

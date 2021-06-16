@@ -57,5 +57,13 @@ function SetStats(type)
 			uHealth = 100;
 			uVision = oGrid.cellSize * oGrid.cellSize;
 			break;
+		case F_LAV:
+			uHealth = 100;
+			uVision = oGrid.cellSize * oGrid.cellSize;
+			break;
+		case E_LAV:
+			uHealth = 100;
+			uVision = oGrid.cellSize * oGrid.cellSize;
+			break;
 	}
 }

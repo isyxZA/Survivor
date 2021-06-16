@@ -8,6 +8,8 @@ function GetCellArea(type, xPos, yPos)
 	{
 		case F_TANK:
 		case E_TANK:
+		case F_LAV:
+		case E_LAV:
 			var cX = (xPos - oGrid.x) div oGrid.cellSize;
 			var cY = (yPos - oGrid.y) div oGrid.cellSize;
 			//Top Center

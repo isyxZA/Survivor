@@ -225,6 +225,50 @@ function GetFormationPosition(type, squadPos, formation)
 					break;
 			}
 			break;
+		case F_LAV:
+			switch squadPos
+			{
+				case 0://Leader
+					switch formation
+					{
+						case "SQUARE":
+							xAdj = 0;
+							yAdj = 0;
+							break;
+						case "LINE":
+							xAdj = 0;
+							yAdj = 0;
+							break;
+					}
+					break;
+				case 1://<-
+					switch formation
+					{
+						case "SQUARE":
+							xAdj = -oGrid.cellSize * 8;
+							yAdj = oGrid.cellSize * 2;
+							break;
+						case "LINE":
+							xAdj = 0;
+							yAdj = 0;
+							break;
+					}
+					break;
+				case 2://->
+					switch formation
+					{
+						case "SQUARE":
+							xAdj = oGrid.cellSize * 8;
+							yAdj = oGrid.cellSize * 2;
+							break;
+						case "LINE":
+							xAdj = 0;
+							yAdj = 0;
+							break;
+					}
+					break;
+			}
+			break;
 		case E_RIFLEMAN:
 			switch squadPos
 			{
@@ -443,6 +487,49 @@ function GetFormationPosition(type, squadPos, formation)
 					break;
 			}
 			break;
-		
+		case E_LAV:
+			switch squadPos
+			{
+				case 0://Leader
+					switch formation
+					{
+						case "SQUARE":
+							xAdj = 0;
+							yAdj = 0;
+							break;
+						case "LINE":
+							xAdj = 0;
+							yAdj = 0;
+							break;
+					}
+					break;
+				case 1://<-
+					switch formation
+					{
+						case "SQUARE":
+							xAdj = -oGrid.cellSize * 8;
+							yAdj = -oGrid.cellSize * 2;
+							break;
+						case "LINE":
+							xAdj = 0;
+							yAdj = 0;
+							break;
+					}
+					break;
+				case 2://->
+					switch formation
+					{
+						case "SQUARE":
+							xAdj = oGrid.cellSize * 8;
+							yAdj = -oGrid.cellSize * 2;
+							break;
+						case "LINE":
+							xAdj = 0;
+							yAdj = 0;
+							break;
+					}
+					break;
+			}
+			break;
 	}
 }

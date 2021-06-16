@@ -1,34 +1,56 @@
-if mouse_check_button_pressed(global.RMOUSE)
+if instance_exists(oPlayer)
 {
-	if canSelect { GetSelected(global.RMOUSE); }
-}
-else if mouse_check_button_pressed(global.LMOUSE)
-{
-	if canSelect { GetSelected(global.LMOUSE); }
-}
-
-//Selected object logic
-if selectedObj != noone 
-{ 
-	/*
-	//Menu hotkey
-	if keyboard_check_pressed(ord("E"))
+	if mouse_check_button_pressed(global.RMOUSE)
 	{
-		//Actions menu setup
-		//If the menu is not currently active
-		with oDialog
+		if canSelect { GetSelected(global.RMOUSE); }
+	}
+	else if mouse_check_button_pressed(global.LMOUSE)
+	{
+		if canSelect { GetSelected(global.LMOUSE); }
+	}
+
+	//Selected object logic
+	if selectedObj != noone 
+	{ 
+		/*
+		//Menu hotkey
+		if keyboard_check_pressed(ord("E"))
 		{
-			if !menuActive { menuLevel = ACTIONMENU; }
-			SetActionMenu(menuLevel);
+			//Actions menu setup
+			//If the menu is not currently active
+			with oDialog
+			{
+				if !menuActive { menuLevel = ACTIONMENU; }
+				SetActionMenu(menuLevel);
+			}
+		}
+		*/
+		if point_distance(selectedObj.x, selectedObj.y, oPlayer.x, oPlayer.y) > oPlayer.uVoiceRange
+		{
+			if oGUI.optionsDisplay { oGUI.optionsDisplay = false; }
+		}
+	
+		if point_distance(selectedObj.x, selectedObj.y, oPlayer.x, oPlayer.y) > oPlayer.uVision
+		{
+			selectedObj.isSelected = false;
+			selectedObj = noone;
+			//Actions menu setup
+			//If the menu is currently active
+			if oDialog.menuActive 
+			{
+				with oDialog
+				{
+					//Deactivate menu
+					menuLevel = RESETMENU;
+					SetActionMenu(menuLevel);
+				}
+			}
 		}
 	}
-	*/
-	if point_distance(selectedObj.x, selectedObj.y, oPlayer.x, oPlayer.y) > oPlayer.uVoiceRange
-	{
-		if oGUI.optionsDisplay { oGUI.optionsDisplay = false; }
-	}
-	
-	if point_distance(selectedObj.x, selectedObj.y, oPlayer.x, oPlayer.y) > oPlayer.uVision
+}
+else
+{
+	if selectedObj != noone 
 	{
 		selectedObj.isSelected = false;
 		selectedObj = noone;

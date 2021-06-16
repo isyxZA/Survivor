@@ -55,6 +55,8 @@ function GetWaypoint(type, goalX, goalY)
 			}
 		case F_TANK://Friend Tank
 		case E_TANK://Foe Tank
+		case F_LAV:
+		case E_LAV:
 			if GetCellArea(uType, goalX, goalY)
 			{
 				waypointX = goalX;

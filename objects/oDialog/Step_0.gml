@@ -84,10 +84,11 @@ if menuActive
 						break;
 					case 0://Button 0
 						//Attack Enemy
-						if !oControl.canSelect && instance_exists(oPlayer) && oControl.selectedObj != noone
+						if !oControl.canSelect && oControl.selectedObj != noone
 						{
 							with oPlayer
 							{
+								uCanShoot = true;
 								uTarget = oControl.selectedObj;
 								uShootRifle = true;
 								alarm[6] = room_speed;

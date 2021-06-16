@@ -2,14 +2,6 @@
 /// @param Type to assign to unit
 function GetBio(type)
 {
-	//Common
-	
-	/*
-	uBrothers = 0;
-	uSisters = 0;
-	uFather = 0;
-	uMother = 0;
-	*/
 	switch type 
 	{
 		case PLAYER:
@@ -58,9 +50,11 @@ function GetBio(type)
 			uHome = choose("Moscow", "Kiev", "Glasov", "Petersburg");
 			break;
 		case F_TANK:
+		case F_LAV:
 			uType = type;
 			break;
 		case E_TANK:
+		case E_LAV:
 			uType = type;
 			break;
 	}

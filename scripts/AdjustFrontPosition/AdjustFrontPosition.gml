@@ -15,14 +15,18 @@ function AdjustFrontPosition(front, movement)
 					eplatoon1x = frontCX;
 					fsquadTAx  = frontCX;
 					esquadTAx  = frontCX;
+					fsquadLAx  = frontCX;
+					esquadLAx  = frontCX;
 					if frontCY > room_height * 0.2
 					{
 						frontCY -= irandom_range(oGrid.cellSize * 10, oGrid.cellSize * 20);
 						//Adjust platoon y positions
-						fplatoon1y = frontCY + (frontSeparation * 2);
-						eplatoon1y = frontCY - (frontSeparation * 2);
 						fsquadTAy  = frontCY + frontSeparation;
 						esquadTAy  = frontCY - frontSeparation;
+						fsquadLAy  = frontCY + (frontSeparation * 2);
+						esquadLAy  = frontCY - (frontSeparation * 2);
+						fplatoon1y = frontCY + (frontSeparation * 3);
+						eplatoon1y = frontCY - (frontSeparation * 3);
 					}
 					break;
 				case "RETREAT":
@@ -32,14 +36,18 @@ function AdjustFrontPosition(front, movement)
 					eplatoon1x = frontCX;
 					fsquadTAx  = frontCX;
 					esquadTAx  = frontCX;
+					fsquadLAx  = frontCX;
+					esquadLAx  = frontCX;
 					if frontCY > room_height * 0.2
 					{
 						frontCY += irandom_range(oGrid.cellSize * 10, oGrid.cellSize * 20);
 						//Adjust platoon y positions
-						fplatoon1y = frontCY + (frontSeparation * 2);
-						eplatoon1y = frontCY - (frontSeparation * 2);
 						fsquadTAy  = frontCY + frontSeparation;
 						esquadTAy  = frontCY - frontSeparation;
+						fsquadLAy  = frontCY + (frontSeparation * 2);
+						esquadLAy  = frontCY - (frontSeparation * 2);
+						fplatoon1y = frontCY + (frontSeparation * 3);
+						eplatoon1y = frontCY - (frontSeparation * 3);
 					}
 					break;
 				case "DEFEND":
@@ -49,14 +57,18 @@ function AdjustFrontPosition(front, movement)
 					eplatoon1x = frontCX;
 					fsquadTAx  = frontCX;
 					esquadTAx  = frontCX;
+					fsquadLAx  = frontCX;
+					esquadLAx  = frontCX;
 					if frontCY < room_height * 0.8
 					{
 						var nY = frontCY + irandom_range(-oGrid.cellSize * 10, oGrid.cellSize * 10);
 						//Adjust platoon y positions
-						fplatoon1y = nY + (frontSeparation * 2);
-						eplatoon1y = nY - (frontSeparation * 2);
 						fsquadTAy  = nY + frontSeparation;
 						esquadTAy  = nY - frontSeparation;
+						fsquadLAy  = nY + (frontSeparation * 2);
+						esquadLAy  = nY - (frontSeparation * 2);
+						fplatoon1y = nY + (frontSeparation * 3);
+						eplatoon1y = nY - (frontSeparation * 3);
 					}
 					break;
 			}
@@ -106,6 +118,9 @@ function AdjustFrontPosition(front, movement)
 			
 			if !ds_list_empty(fSquadPTa) { MoveSquad(fPlatoonT, 0); }
 			if !ds_list_empty(eSquadPTa) { MoveSquad(ePlatoonT, 0); }
+			
+			if !ds_list_empty(fSquadPLa) { MoveSquad(fPlatoonL, 0); }
+			if !ds_list_empty(eSquadPLa) { MoveSquad(ePlatoonL, 0); }
 			break;
 		case "LEFT":
 			switch movement
@@ -117,14 +132,18 @@ function AdjustFrontPosition(front, movement)
 					eplatoon3x = frontLX;
 					fsquadTBx  = frontLX;
 					esquadTCx  = frontLX;
+					fsquadLBx  = frontLX + oGrid.cellSize * 30;
+					esquadLCx  = frontLX + oGrid.cellSize * 30;
 					if frontLY > room_height * 0.2
 					{
 						frontLY -= irandom_range(oGrid.cellSize * 10, oGrid.cellSize * 20);
 						//Adjust platoon y positions
-						fplatoon2y = frontLY + (frontSeparation * 2);
-						eplatoon3y = frontLY - (frontSeparation * 2);
 						fsquadTBy  = frontLY + frontSeparation;
 						esquadTCy  = frontLY - frontSeparation;
+						fsquadLBy  = frontLY + (frontSeparation * 2);
+						esquadLCy  = frontLY - (frontSeparation * 2);
+						fplatoon2y = frontLY + (frontSeparation * 2);
+						eplatoon3y = frontLY - (frontSeparation * 2);
 					}
 					break;
 				case "RETREAT":
@@ -134,14 +153,18 @@ function AdjustFrontPosition(front, movement)
 					eplatoon3x = frontLX;
 					fsquadTBx  = frontLX;
 					esquadTCx  = frontLX;
+					fsquadLBx  = frontLX + oGrid.cellSize * 30;
+					esquadLCx  = frontLX + oGrid.cellSize * 30;
 					if frontLY < room_height * 0.8
 					{
 						frontLY += irandom_range(oGrid.cellSize * 10, oGrid.cellSize * 20);
 						//Adjust platoon y positions
-						fplatoon2y = frontLY + (frontSeparation * 2);
-						eplatoon3y = frontLY - (frontSeparation * 2);
 						fsquadTBy  = frontLY + frontSeparation;
 						esquadTCy  = frontLY - frontSeparation;
+						fsquadLBy  = frontLY + (frontSeparation * 2);
+						esquadLCy  = frontLY - (frontSeparation * 2);
+						fplatoon2y = frontLY + (frontSeparation * 3);
+						eplatoon3y = frontLY - (frontSeparation * 3);
 					}
 					break;
 				case "DEFEND":
@@ -151,13 +174,16 @@ function AdjustFrontPosition(front, movement)
 					eplatoon3x = frontLX;
 					fsquadTBx  = frontLX;
 					esquadTCx  = frontLX;
-
+					fsquadLBx  = frontLX + oGrid.cellSize * 30;
+					esquadLCx  = frontLX + oGrid.cellSize * 30;
 					var nY = frontLY + irandom_range(-oGrid.cellSize * 10, oGrid.cellSize * 10);
 					//Adjust platoon y positions
-					fplatoon2y = nY + (frontSeparation * 2);
-					eplatoon3y = nY - (frontSeparation * 2);
 					fsquadTBy  = nY + frontSeparation;
 					esquadTCy  = nY - frontSeparation;
+					fsquadLBy  = nY + (frontSeparation * 2);
+					esquadLCy  = nY - (frontSeparation * 2);
+					fplatoon2y = nY + (frontSeparation * 3);
+					eplatoon3y = nY - (frontSeparation * 3);
 					break;
 			}
 			//FRIEND
@@ -206,6 +232,9 @@ function AdjustFrontPosition(front, movement)
 			
 			if !ds_list_empty(fSquadPTb) { MoveSquad(fPlatoonT, 1); }
 			if !ds_list_empty(eSquadPTc) { MoveSquad(ePlatoonT, 2); }
+			
+			if !ds_list_empty(fSquadPLb) { MoveSquad(fPlatoonL, 1); }
+			if !ds_list_empty(eSquadPLc) { MoveSquad(ePlatoonL, 2); }
 			break;
 		case "RIGHT":
 			switch movement
@@ -217,14 +246,18 @@ function AdjustFrontPosition(front, movement)
 					eplatoon2x = frontRX;
 					fsquadTCx  = frontRX;
 					esquadTBx  = frontRX;
+					fsquadLCx  = frontRX - (oGrid.cellSize * 30);
+					esquadLBx  = frontRX - (oGrid.cellSize * 30);
 					if frontRY > room_height * 0.2
 					{
 						frontRY -= irandom_range(oGrid.cellSize * 10, oGrid.cellSize * 20);
 						//Adjust platoon y positions
-						fplatoon3y = frontRY + (frontSeparation * 2);
-						eplatoon2y = frontRY - (frontSeparation * 2);
 						fsquadTCy  = frontRY + frontSeparation;
 						esquadTBy  = frontRY - frontSeparation;
+						fsquadLCy  = frontRY + (frontSeparation * 2);
+						esquadLBy  = frontRY - (frontSeparation * 2);
+						fplatoon3y = frontRY + (frontSeparation * 3);
+						eplatoon2y = frontRY - (frontSeparation * 3);
 					}
 					break;
 				case "RETREAT":
@@ -234,14 +267,18 @@ function AdjustFrontPosition(front, movement)
 					eplatoon2x = frontRX;
 					fsquadTCx  = frontRX;
 					esquadTBx  = frontRX;
+					fsquadLCx  = frontRX - (oGrid.cellSize * 30);
+					esquadLBx  = frontRX - (oGrid.cellSize * 30);
 					if frontRY < room_height * 0.8
 					{
 						frontRY += irandom_range(oGrid.cellSize * 10, oGrid.cellSize * 20);
 						//Adjust platoon y positions
-						fplatoon3y = frontRY + (frontSeparation * 2);
-						eplatoon2y = frontRY - (frontSeparation * 2);
 						fsquadTCy  = frontRY + frontSeparation;
 						esquadTBy  = frontRY - frontSeparation;
+						fsquadLCy  = frontRY + (frontSeparation * 2);
+						esquadLBy  = frontRY - (frontSeparation * 2);
+						fplatoon3y = frontRY + (frontSeparation * 3);
+						eplatoon2y = frontRY - (frontSeparation * 3);
 					}
 					break;
 				case "DEFEND":
@@ -251,13 +288,16 @@ function AdjustFrontPosition(front, movement)
 					eplatoon2x = frontRX;
 					fsquadTCx  = frontRX;
 					esquadTBx  = frontRX;
-
+					fsquadLCx  = frontRX - (oGrid.cellSize * 30);
+					esquadLBx  = frontRX - (oGrid.cellSize * 30);
 					var nY = frontRY + irandom_range(-oGrid.cellSize * 10, oGrid.cellSize * 10);
 					//Adjust platoon y positions
-					fplatoon3y = nY + (frontSeparation * 2);
-					eplatoon2y = nY - (frontSeparation * 2);
 					fsquadTCy  = nY + frontSeparation;
 					esquadTBy  = nY - frontSeparation;
+					fsquadLCy  = nY + (frontSeparation * 2);
+					esquadLBy  = nY - (frontSeparation * 2);
+					fplatoon3y = nY + (frontSeparation * 3);
+					eplatoon2y = nY - (frontSeparation * 3);
 					break;
 			}
 			//FRIEND
@@ -307,6 +347,9 @@ function AdjustFrontPosition(front, movement)
 			
 			if !ds_list_empty(fSquadPTc) { MoveSquad(fPlatoonT, 2); }
 			if !ds_list_empty(eSquadPTb) { MoveSquad(ePlatoonT, 1); }
+			
+			if !ds_list_empty(fSquadPLc) { MoveSquad(fPlatoonL, 2); }
+			if !ds_list_empty(eSquadPLb) { MoveSquad(ePlatoonL, 1); }
 			break;
 	}
 }

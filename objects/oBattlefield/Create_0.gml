@@ -4,6 +4,7 @@ y = room_height * 0.5;
 spawnCell = noone;
 squadSize = 11;//Infantry squad size
 squadSizeT = 5;//Tank squad size
+squadSizeL = 3;//LAV squad size
 xAdj = 0;
 yAdj = 0;
 cellX = 0;
@@ -94,7 +95,7 @@ ds_list_mark_as_list(fPlatoon3, 3);
 fPlatoon3[| 4] = fSquadP3e;
 ds_list_mark_as_list(fPlatoon3, 4);
 
-//ARMOR PLATOON
+//TANK PLATOON
 createfPlatoonT = true;
 
 fPlatoonT = ds_list_create();//First Platoon
@@ -113,6 +114,26 @@ fPlatoonT[| 1] = fSquadPTb;
 ds_list_mark_as_list(fPlatoonT, 1);
 fPlatoonT[| 2] = fSquadPTc;
 ds_list_mark_as_list(fPlatoonT, 2);
+
+//LAV PLATOON
+createfPlatoonL = true;
+
+fPlatoonL = ds_list_create();//First Platoon
+
+fSquadPLa = ds_list_create();//Able squad
+fSquadPLb = ds_list_create();//Bravo squad
+fSquadPLc = ds_list_create();//Charlie squad
+
+fsquadLeadPLa = noone;
+fsquadLeadPLb = noone;
+fsquadLeadPLc = noone;
+
+fPlatoonL[| 0] = fSquadPLa;
+ds_list_mark_as_list(fPlatoonL, 0);
+fPlatoonL[| 1] = fSquadPLb;
+ds_list_mark_as_list(fPlatoonT, 1);
+fPlatoonL[| 2] = fSquadPLc;
+ds_list_mark_as_list(fPlatoonL, 2);
 
 //Enemy forces init
 //PLATOON 1
@@ -199,7 +220,7 @@ ds_list_mark_as_list(ePlatoon3, 3);
 ePlatoon3[| 4] = eSquadP3e;
 ds_list_mark_as_list(ePlatoon3, 4);
 
-//ARMOR PLATOON
+//TANK PLATOON
 createePlatoonT = true;
 
 ePlatoonT = ds_list_create();//First Platoon
@@ -219,11 +240,30 @@ ds_list_mark_as_list(ePlatoonT, 1);
 ePlatoonT[| 2] = eSquadPTc;
 ds_list_mark_as_list(ePlatoonT, 2);
 
+//LAV PLATOON
+createePlatoonL = true;
+
+ePlatoonL = ds_list_create();//First Platoon
+
+eSquadPLa = ds_list_create();//Able squad
+eSquadPLb = ds_list_create();//Bravo squad
+eSquadPLc = ds_list_create();//Charlie squad
+
+esquadLeadPLa = noone;
+esquadLeadPLb = noone;
+esquadLeadPLc = noone;
+
+ePlatoonL[| 0] = eSquadPLa;
+ds_list_mark_as_list(ePlatoonL, 0);
+ePlatoonL[| 1] = eSquadPLb;
+ds_list_mark_as_list(ePlatoonL, 1);
+ePlatoonL[| 2] = eSquadPLc;
+ds_list_mark_as_list(ePlatoonL, 2);
+
 //Waypoints
-//Center Front
 //Friendly positions
 fplatoon1x = room_width * 0.5;
-fplatoon1y = room_height * 0.65;
+fplatoon1y = room_height * 0.75;
 // ||
 fsquad1Ax = fplatoon1x;
 fsquad1Ay = fplatoon1y;
@@ -240,31 +280,8 @@ fsquad1Dy = fplatoon1y + (oGrid.cellSize * 10);
 fsquad1Ex = fplatoon1x + (oGrid.cellSize * 30);
 fsquad1Ey = fplatoon1y + (oGrid.cellSize * 10);
 
-//Foe positions
-eplatoon1x = room_width * 0.5;
-eplatoon1y = room_height * 0.35;
-
-// ||
-esquad1Ax = eplatoon1x;
-esquad1Ay = eplatoon1y;
-// <-
-esquad1Bx = eplatoon1x + (oGrid.cellSize * 10);
-esquad1By = eplatoon1y - (oGrid.cellSize * 5);
-// ->
-esquad1Cx = eplatoon1x - (oGrid.cellSize * 10);
-esquad1Cy = eplatoon1y - (oGrid.cellSize * 5);
-// <--
-esquad1Dx = eplatoon1x + (oGrid.cellSize * 30);
-esquad1Dy = eplatoon1y - (oGrid.cellSize * 10);
-// -->
-esquad1Ex = eplatoon1x - (oGrid.cellSize * 30);
-esquad1Ey = eplatoon1y - (oGrid.cellSize * 10);
-
-
-//Western Front
-//Friendly positions
 fplatoon2x = room_width * 0.2;
-fplatoon2y = room_height * 0.6;
+fplatoon2y = room_height * 0.75;
 // ||
 fsquad2Ax = fplatoon2x;
 fsquad2Ay = fplatoon2y;
@@ -281,29 +298,8 @@ fsquad2Dy = fplatoon2y + (oGrid.cellSize * 10);
 fsquad2Ex = fplatoon2x + (oGrid.cellSize * 30);
 fsquad2Ey = fplatoon2y + (oGrid.cellSize * 10);
 
-//Foe positions
-eplatoon2x = room_width * 0.8;
-eplatoon2y = room_height * 0.4;
-// ||
-esquad2Ax = eplatoon2x;
-esquad2Ay = eplatoon2y;
-// <-
-esquad2Bx = eplatoon2x + (oGrid.cellSize * 10);
-esquad2By = eplatoon2y - (oGrid.cellSize * 5);
-// ->
-esquad2Cx = eplatoon2x - (oGrid.cellSize * 10);
-esquad2Cy = eplatoon2y - (oGrid.cellSize * 5);
-// <--
-esquad2Dx = eplatoon2x + (oGrid.cellSize * 30);
-esquad2Dy = eplatoon2y - (oGrid.cellSize * 10);
-// -->
-esquad2Ex = eplatoon2x - (oGrid.cellSize * 30);
-esquad2Ey = eplatoon2y - (oGrid.cellSize * 10);
-
-//Eastern Front
-//Friendly positions
 fplatoon3x = room_width * 0.8;
-fplatoon3y = room_height * 0.6;
+fplatoon3y = room_height * 0.75;
 // ||
 fsquad3Ax = fplatoon3x;
 fsquad3Ay = fplatoon3y;
@@ -321,8 +317,45 @@ fsquad3Ex = fplatoon3x + (oGrid.cellSize * 30);
 fsquad3Ey = fplatoon3y + (oGrid.cellSize * 10);
 
 //Foe positions
+eplatoon1x = room_width * 0.5;
+eplatoon1y = room_height * 0.25;
+
+// ||
+esquad1Ax = eplatoon1x;
+esquad1Ay = eplatoon1y;
+// <-
+esquad1Bx = eplatoon1x + (oGrid.cellSize * 10);
+esquad1By = eplatoon1y - (oGrid.cellSize * 5);
+// ->
+esquad1Cx = eplatoon1x - (oGrid.cellSize * 10);
+esquad1Cy = eplatoon1y - (oGrid.cellSize * 5);
+// <--
+esquad1Dx = eplatoon1x + (oGrid.cellSize * 30);
+esquad1Dy = eplatoon1y - (oGrid.cellSize * 10);
+// -->
+esquad1Ex = eplatoon1x - (oGrid.cellSize * 30);
+esquad1Ey = eplatoon1y - (oGrid.cellSize * 10);
+
+eplatoon2x = room_width * 0.8;
+eplatoon2y = room_height * 0.25;
+// ||
+esquad2Ax = eplatoon2x;
+esquad2Ay = eplatoon2y;
+// <-
+esquad2Bx = eplatoon2x + (oGrid.cellSize * 10);
+esquad2By = eplatoon2y - (oGrid.cellSize * 5);
+// ->
+esquad2Cx = eplatoon2x - (oGrid.cellSize * 10);
+esquad2Cy = eplatoon2y - (oGrid.cellSize * 5);
+// <--
+esquad2Dx = eplatoon2x + (oGrid.cellSize * 30);
+esquad2Dy = eplatoon2y - (oGrid.cellSize * 10);
+// -->
+esquad2Ex = eplatoon2x - (oGrid.cellSize * 30);
+esquad2Ey = eplatoon2y - (oGrid.cellSize * 10);
+
 eplatoon3x = room_width * 0.2;
-eplatoon3y = room_height * 0.4;
+eplatoon3y = room_height * 0.25;
 
 // ||
 esquad3Ax = eplatoon3x;
@@ -366,7 +399,33 @@ esquadTBy = eplatoonTy - (oGrid.cellSize * 10);
 esquadTCx = eplatoonTx - (oGrid.cellSize * 50);
 esquadTCy = eplatoonTy - (oGrid.cellSize * 10);
 
-frontSeparation = oGrid.cellSize * 10;
+//Friendly LAV positions
+fplatoonLx = room_width * 0.5;
+fplatoonLy = room_height * 0.65;
+// ||
+fsquadLAx = fplatoonLx;
+fsquadLAy = fplatoonLy;
+// <-
+fsquadLBx = fplatoonLx - (oGrid.cellSize * 50);
+fsquadLBy = fplatoonLy + (oGrid.cellSize * 10);
+// ->
+fsquadLCx = fplatoonLx + (oGrid.cellSize * 50);
+fsquadLCy = fplatoonLy + (oGrid.cellSize * 10);
+
+//Foe LAV positions
+eplatoonLx = room_width * 0.5;
+eplatoonLy = room_height * 0.35;
+// ||
+esquadLAx = eplatoonLx;
+esquadLAy = eplatoonLy;
+// <-
+esquadLBx = eplatoonLx + (oGrid.cellSize * 50);
+esquadLBy = eplatoonLy - (oGrid.cellSize * 10);
+// ->
+esquadLCx = eplatoonLx - (oGrid.cellSize * 50);
+esquadLCy = eplatoonLy - (oGrid.cellSize * 10);
+
+frontSeparation = oGrid.cellSize * 16;
 
 frontCX = x;
 frontCY = y;

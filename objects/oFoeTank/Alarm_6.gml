@@ -50,13 +50,13 @@ if uCanShoot
 				uReloading = true;
 			}
 		}
-		else if uShootMg
+		else if uShootMG
 		{
 			if point_distance(x, y, uTarget.x, uTarget.y) < uAttackRange
 			{
 				uMGAmmo -= 1;
-				var bsx = (x + 12) + lengthdir_x(32, turret_angle);
-				var bsy = y + lengthdir_y(32, turret_angle);
+				var bsx = x + lengthdir_x(60, turret_angle);
+				var bsy = y + lengthdir_y(60, turret_angle);
 				if Chance(uAccuracy)
 				{
 					SpawnBullet(B_MGSPD, B_MG, bsx, bsy, uTarget.x, uTarget.y);
@@ -91,7 +91,7 @@ if uCanShoot
 		{
 			uTarget = -1;
 			uShootMain = false;
-			uShootMg = false;
+			uShootMG = false;
 			uShooting = false;
 		}
 	}
@@ -100,6 +100,6 @@ else
 {
 	uTarget = -1;
 	uShootMain = false;
-	uShootMg = false;
+	uShootMG = false;
 	uShooting = false;
 }

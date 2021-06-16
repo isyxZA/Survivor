@@ -46,18 +46,6 @@ function GetGoal(squad)
 			goalX = oBattlefield.fsquad2Ex;
 			goalY = oBattlefield.fsquad2Ey;
 			break;
-		case "fT_A":
-			goalX = oBattlefield.fsquadTAx;
-			goalY = oBattlefield.fsquadTAy;
-			break;
-		case "fT_B":
-			goalX = oBattlefield.fsquadTBx;
-			goalY = oBattlefield.fsquadTBy;
-			break;
-		case "fT_C":
-			goalX = oBattlefield.fsquadTCx;
-			goalY = oBattlefield.fsquadTCy;
-			break;
 		//Friendly Platoon 3 
 		case "f3_A":
 			goalX = oBattlefield.fsquad3Ax;
@@ -79,7 +67,30 @@ function GetGoal(squad)
 			goalX = oBattlefield.fsquad3Ex;
 			goalY = oBattlefield.fsquad3Ey;
 			break;
-			
+		case "fT_A":
+			goalX = oBattlefield.fsquadTAx;
+			goalY = oBattlefield.fsquadTAy;
+			break;
+		case "fT_B":
+			goalX = oBattlefield.fsquadTBx;
+			goalY = oBattlefield.fsquadTBy;
+			break;
+		case "fT_C":
+			goalX = oBattlefield.fsquadTCx;
+			goalY = oBattlefield.fsquadTCy;
+			break;
+		case "fL_A":
+			goalX = oBattlefield.fsquadLAx;
+			goalY = oBattlefield.fsquadLAy;
+			break;
+		case "fL_B":
+			goalX = oBattlefield.fsquadLBx;
+			goalY = oBattlefield.fsquadLBy;
+			break;
+		case "fL_C":
+			goalX = oBattlefield.fsquadLCx;
+			goalY = oBattlefield.fsquadLCy;
+			break;
 		//Foe platoon 1
 		case "e1_A":
 			goalX = oBattlefield.esquad1Ax;
@@ -154,6 +165,18 @@ function GetGoal(squad)
 		case "eT_C":
 			goalX = oBattlefield.esquadTCx;
 			goalY = oBattlefield.esquadTCy;
+			break;
+		case "eL_A":
+			goalX = oBattlefield.esquadLAx;
+			goalY = oBattlefield.esquadLAy;
+			break;
+		case "eL_B":
+			goalX = oBattlefield.esquadLBx;
+			goalY = oBattlefield.esquadLBy;
+			break;
+		case "eL_C":
+			goalX = oBattlefield.esquadLCx;
+			goalY = oBattlefield.esquadLCy;
 			break;
 	}
 }

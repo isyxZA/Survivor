@@ -4,7 +4,6 @@ bDamageRatio = 1;
 bPath = path_add();
 bTargetX = 0;
 bTargetY = 0;
-bHitCoverCount = 1;
 bStartPath = true;
 bMoving = false;
 

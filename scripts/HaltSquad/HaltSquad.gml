@@ -152,6 +152,31 @@ function HaltSquad(squad)
 				hsu.uFollowTarget = noone;
 			}
 			break;
+		//Friendly LAV platoon squads
+		case "fL_A":
+			var hss = ds_list_size(ds_list_find_value(fPlatoonL, 0));
+			for (var i = 0; i < hss; ++i)
+			{
+				var hsu = ds_list_find_value(ds_list_find_value(fPlatoonL, 0), i);
+				hsu.uFollowTarget = noone;
+			}
+			break;
+		case "fL_B":
+			var hss = ds_list_size(ds_list_find_value(fPlatoonL, 1));
+			for (var i = 0; i < hss; ++i)
+			{
+				var hsu = ds_list_find_value(ds_list_find_value(fPlatoonL, 1), i);
+				hsu.uFollowTarget = noone;
+			}
+			break;
+		case "fL_C":
+			var hss = ds_list_size(ds_list_find_value(fPlatoonL, 2));
+			for (var i = 0; i < hss; ++i)
+			{
+				var hsu = ds_list_find_value(ds_list_find_value(fPlatoonL, 2), i);
+				hsu.uFollowTarget = noone;
+			}
+			break;
 		//Foe platoon 1 squads
 		case "e1_A":
 			var hss = ds_list_size(ds_list_find_value(ePlatoon1, 0));
@@ -297,6 +322,31 @@ function HaltSquad(squad)
 			for (var i = 0; i < hss; ++i)
 			{
 				var hsu = ds_list_find_value(ds_list_find_value(ePlatoonT, 2), i);
+				hsu.uFollowTarget = noone;
+			}
+			break;
+		//Foe LAV platoon squads
+		case "eL_A":
+			var hss = ds_list_size(ds_list_find_value(ePlatoonL, 0));
+			for (var i = 0; i < hss; ++i)
+			{
+				var hsu = ds_list_find_value(ds_list_find_value(ePlatoonL, 0), i);
+				hsu.uFollowTarget = noone;
+			}
+			break;
+		case "eL_B":
+			var hss = ds_list_size(ds_list_find_value(ePlatoonL, 1));
+			for (var i = 0; i < hss; ++i)
+			{
+				var hsu = ds_list_find_value(ds_list_find_value(ePlatoonL, 1), i);
+				hsu.uFollowTarget = noone;
+			}
+			break;
+		case "eL_C":
+			var hss = ds_list_size(ds_list_find_value(ePlatoonL, 2));
+			for (var i = 0; i < hss; ++i)
+			{
+				var hsu = ds_list_find_value(ds_list_find_value(ePlatoonL, 2), i);
 				hsu.uFollowTarget = noone;
 			}
 			break;

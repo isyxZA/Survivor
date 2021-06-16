@@ -8,14 +8,16 @@ var tfCount = ds_list_size(fSquadP1a) +
 			  ds_list_size(fSquadP1c) +
 			  ds_list_size(fSquadP1d) +
 			  ds_list_size(fSquadP1e) +
-			  ds_list_size(fSquadPTa);
+			  ds_list_size(fSquadPTa) +
+			  ds_list_size(fSquadPLa);
 			 
 var teCount = ds_list_size(eSquadP1a) +
 			  ds_list_size(eSquadP1b) +
 			  ds_list_size(eSquadP1c) +
 			  ds_list_size(eSquadP1d) +
 			  ds_list_size(eSquadP1e) +
-			  ds_list_size(eSquadPTa);
+			  ds_list_size(eSquadPTa) +
+			  ds_list_size(eSquadPLa);
 			  
 if tfCount > teCount
 {
