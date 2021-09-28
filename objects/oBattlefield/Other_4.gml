@@ -17,7 +17,7 @@ if createfPlatoon1
 			cellX = (px - oGrid.x) div oGrid.cellSize;
 			cellY = (py - oGrid.y) div oGrid.cellSize;
 			var no;
-			if i == 0 { no = oPlayer; }
+			if i == 0 { no = oPlayer; oGUI.alarm[0] = 10; }
 				else { no = oFriend; }
 			var nu = instance_create_layer(px, py, "Units", no);
 			fSquadP1a[| i] = nu;
@@ -25,7 +25,10 @@ if createfPlatoon1
 			{ 
 				fsquadLeadP1a = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 
 			}
@@ -33,6 +36,44 @@ if createfPlatoon1
 			{
 				nu.uSquadLead = fsquadLeadP1a;
 				nu.uFollowTarget = fsquadLeadP1a;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -63,13 +104,54 @@ if createfPlatoon1
 			{ 
 				fsquadLeadP1b = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP1b;
 				nu.uFollowTarget = fsquadLeadP1b;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -100,13 +182,54 @@ if createfPlatoon1
 			{ 
 				fsquadLeadP1c = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP1c;
 				nu.uFollowTarget = fsquadLeadP1c;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -137,13 +260,54 @@ if createfPlatoon1
 			{ 
 				fsquadLeadP1d = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP1d;
 				nu.uFollowTarget = fsquadLeadP1d;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -174,13 +338,54 @@ if createfPlatoon1
 			{ 
 				fsquadLeadP1e = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP1e;
 				nu.uFollowTarget = fsquadLeadP1e;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -217,13 +422,54 @@ if createfPlatoon2
 			{ 
 				fsquadLeadP2a = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP2a;
 				nu.uFollowTarget = fsquadLeadP2a;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -254,13 +500,54 @@ if createfPlatoon2
 			{ 
 				fsquadLeadP2b = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP2b;
 				nu.uFollowTarget = fsquadLeadP2b;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -291,13 +578,54 @@ if createfPlatoon2
 			{ 
 				fsquadLeadP2c = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP2c;
 				nu.uFollowTarget = fsquadLeadP2c;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -328,13 +656,54 @@ if createfPlatoon2
 			{ 
 				fsquadLeadP2d = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP2d;
 				nu.uFollowTarget = fsquadLeadP2d;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -365,13 +734,54 @@ if createfPlatoon2
 			{ 
 				fsquadLeadP2e = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP2e;
 				nu.uFollowTarget = fsquadLeadP2e;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -408,13 +818,54 @@ if createfPlatoon3
 			{ 
 				fsquadLeadP3a = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP3a;
 				nu.uFollowTarget = fsquadLeadP3a;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -445,13 +896,54 @@ if createfPlatoon3
 			{ 
 				fsquadLeadP3b = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP3b;
 				nu.uFollowTarget = fsquadLeadP3b;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -482,13 +974,54 @@ if createfPlatoon3
 			{ 
 				fsquadLeadP3c = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP3c;
 				nu.uFollowTarget = fsquadLeadP3c;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -519,13 +1052,54 @@ if createfPlatoon3
 			{ 
 				fsquadLeadP3d = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP3d;
 				nu.uFollowTarget = fsquadLeadP3d;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -556,13 +1130,54 @@ if createfPlatoon3
 			{ 
 				fsquadLeadP3e = nu;
 				nu.uIsSquadLead = true;
+				nu.uRole = "Squad Leader";
+				nu.uRank = "SSG";
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = fsquadLeadP3e;
 				nu.uFollowTarget = fsquadLeadP3e;
+				switch i
+				{
+					case 1:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 2:
+						nu.uRole = "Team Leader";
+						nu.uRank = "SGT";
+						break;
+					case 3:
+						nu.uRole = "Grenadier";
+						nu.uRank = choose("CPL", "SPC");
+						break;
+					case 4:
+						nu.uRole = "Machine Gunner";
+						nu.uRank = "CPL";
+						break;
+					case 5:
+						nu.uRole = "Sharpshooter";
+						nu.uRank = "PV2";
+						break;
+					case 6:
+						nu.uRole = "Rocker";
+						nu.uRank = "PV2";
+						break;
+					case 7:
+					case 8:
+					case 9:
+						nu.uRole = "Rifleman";
+						nu.uRank = "PVT";
+						break;
+					case 10:
+						nu.uRole = "Medic";
+						nu.uRank = "CPL";
+						break;
+				}
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -883,12 +1498,14 @@ if createePlatoon1
 				esquadLeadP1a = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP1a;
 				nu.uFollowTarget = esquadLeadP1a;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -920,12 +1537,14 @@ if createePlatoon1
 				esquadLeadP1b = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP1b;
 				nu.uFollowTarget = esquadLeadP1b;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -957,12 +1576,14 @@ if createePlatoon1
 				esquadLeadP1c = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP1c;
 				nu.uFollowTarget = esquadLeadP1c;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -994,12 +1615,14 @@ if createePlatoon1
 				esquadLeadP1d = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP1d;
 				nu.uFollowTarget = esquadLeadP1d;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -1031,12 +1654,14 @@ if createePlatoon1
 				esquadLeadP1e = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP1e;
 				nu.uFollowTarget = esquadLeadP1e;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -1074,12 +1699,14 @@ if createePlatoon2
 				esquadLeadP2a = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP2a;
 				nu.uFollowTarget = esquadLeadP2a;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -1111,12 +1738,14 @@ if createePlatoon2
 				esquadLeadP2b = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP2b;
 				nu.uFollowTarget = esquadLeadP2b;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -1148,12 +1777,14 @@ if createePlatoon2
 				esquadLeadP2c = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP2c;
 				nu.uFollowTarget = esquadLeadP2c;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -1185,12 +1816,14 @@ if createePlatoon2
 				esquadLeadP2d = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP2d;
 				nu.uFollowTarget = esquadLeadP2d;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -1222,12 +1855,14 @@ if createePlatoon2
 				esquadLeadP2e = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP2e;
 				nu.uFollowTarget = esquadLeadP2e;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -1265,12 +1900,14 @@ if createePlatoon3
 				esquadLeadP3a = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP3a;
 				nu.uFollowTarget = esquadLeadP3a;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -1302,12 +1939,14 @@ if createePlatoon3
 				esquadLeadP3b = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP3b;
 				nu.uFollowTarget = esquadLeadP3b;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -1339,12 +1978,14 @@ if createePlatoon3
 				esquadLeadP3c = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP3c;
 				nu.uFollowTarget = esquadLeadP3c;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -1376,12 +2017,14 @@ if createePlatoon3
 				esquadLeadP3d = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP3d;
 				nu.uFollowTarget = esquadLeadP3d;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;
@@ -1413,12 +2056,14 @@ if createePlatoon3
 				esquadLeadP3e = nu;
 				nu.uIsSquadLead = true;
 				nu.uSquadLead = nu;
+				nu.uOrders = "Move to rally";
 				nu.findGoal = true;
 			}
 			else
 			{
 				nu.uSquadLead = esquadLeadP3e;
 				nu.uFollowTarget = esquadLeadP3e;
+				nu.uOrders = "Follow squad lead";
 				nu.uFollow = true;
 			}
 			nu.uFormationPosition = i;

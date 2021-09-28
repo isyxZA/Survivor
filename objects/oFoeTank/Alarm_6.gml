@@ -28,6 +28,8 @@ if uCanShoot
 					{
 						fIndex = sCannonFlash;
 						fAngle = other.turret_angle;
+						fScale = 1.2;
+						fAlpha = 0.7;
 						image_speed = 0.1;
 						alarm[0] = 20;
 					}
@@ -48,6 +50,7 @@ if uCanShoot
 				//Display reload dialog
 				uShooting = false;
 				uReloading = true;
+				alarm[7] = room_speed;
 			}
 		}
 		else if uShootMG
@@ -71,6 +74,8 @@ if uCanShoot
 				{
 					fIndex = sRifleFlash;
 					fAngle = other.turret_angle;
+					fScale = 1.5;
+					fAlpha = 1;
 					alarm[0] = 8;
 				}
 				++uBurstCount;

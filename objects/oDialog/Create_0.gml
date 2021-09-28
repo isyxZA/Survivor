@@ -31,5 +31,3 @@ textHeader = "Action Menu";
 
 touchHeader = false;
 touchButton = false;
-
-

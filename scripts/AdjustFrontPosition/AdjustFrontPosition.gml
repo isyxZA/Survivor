@@ -3,12 +3,14 @@
 /// @param movement Type of troop movement to execute
 function AdjustFrontPosition(front, movement)
 {
+	var orders = "";
 	switch front
 	{
 		case "CENTER":
 			switch movement
 			{
 				case "ATTACK":
+					orders = "ATTACK_MOVE";
 					frontCX = x + irandom_range(-oGrid.cellSize * 10, oGrid.cellSize * 10);
 					//Adjust platoon x positions
 					fplatoon1x = frontCX;
@@ -30,6 +32,7 @@ function AdjustFrontPosition(front, movement)
 					}
 					break;
 				case "RETREAT":
+					orders = "RETREAT_MOVE";
 					frontCX = x + irandom_range(-oGrid.cellSize * 10, oGrid.cellSize * 10);
 					//Adjust platoon x positions
 					fplatoon1x = frontCX;
@@ -51,6 +54,7 @@ function AdjustFrontPosition(front, movement)
 					}
 					break;
 				case "DEFEND":
+					orders = "DEFEND_MOVE";
 					frontCX = x + irandom_range(-oGrid.cellSize * 10, oGrid.cellSize * 10);
 					//Adjust platoon x positions
 					fplatoon1x = frontCX;
@@ -104,28 +108,29 @@ function AdjustFrontPosition(front, movement)
 			esquad1Ex = eplatoon1x - (oGrid.cellSize * 30);
 			esquad1Ey = eplatoon1y - (oGrid.cellSize * 10);
 			
-			if !ds_list_empty(fSquadP1a) { MoveSquad(fPlatoon1, 0); }
-			if !ds_list_empty(fSquadP1b) { MoveSquad(fPlatoon1, 1); }
-			if !ds_list_empty(fSquadP1c) { MoveSquad(fPlatoon1, 2); }
-			if !ds_list_empty(fSquadP1d) { MoveSquad(fPlatoon1, 3); }
-			if !ds_list_empty(fSquadP1e) { MoveSquad(fPlatoon1, 4); }
+			if !ds_list_empty(fSquadP1a) { MoveSquad(fSquadP1a); IssueOrder(fSquadP1a, orders); }
+			if !ds_list_empty(fSquadP1b) { MoveSquad(fSquadP1b); IssueOrder(fSquadP1b, orders); }
+			if !ds_list_empty(fSquadP1c) { MoveSquad(fSquadP1c); IssueOrder(fSquadP1c, orders); }
+			if !ds_list_empty(fSquadP1d) { MoveSquad(fSquadP1d); IssueOrder(fSquadP1d, orders); }
+			if !ds_list_empty(fSquadP1e) { MoveSquad(fSquadP1e); IssueOrder(fSquadP1e, orders); }
 			
-			if !ds_list_empty(eSquadP1a) { MoveSquad(ePlatoon1, 0); }
-			if !ds_list_empty(eSquadP1b) { MoveSquad(ePlatoon1, 1); }
-			if !ds_list_empty(eSquadP1c) { MoveSquad(ePlatoon1, 2); }
-			if !ds_list_empty(eSquadP1d) { MoveSquad(ePlatoon1, 3); }
-			if !ds_list_empty(eSquadP1e) { MoveSquad(ePlatoon1, 4); }
+			if !ds_list_empty(eSquadP1a) { MoveSquad(eSquadP1a); }
+			if !ds_list_empty(eSquadP1b) { MoveSquad(eSquadP1b); }
+			if !ds_list_empty(eSquadP1c) { MoveSquad(eSquadP1c); }
+			if !ds_list_empty(eSquadP1d) { MoveSquad(eSquadP1d); }
+			if !ds_list_empty(eSquadP1e) { MoveSquad(eSquadP1e); }
 			
-			if !ds_list_empty(fSquadPTa) { MoveSquad(fPlatoonT, 0); }
-			if !ds_list_empty(eSquadPTa) { MoveSquad(ePlatoonT, 0); }
+			if !ds_list_empty(fSquadPTa) { MoveSquad(fSquadPTa); }
+			if !ds_list_empty(eSquadPTa) { MoveSquad(eSquadPTa); }
 			
-			if !ds_list_empty(fSquadPLa) { MoveSquad(fPlatoonL, 0); }
-			if !ds_list_empty(eSquadPLa) { MoveSquad(ePlatoonL, 0); }
+			if !ds_list_empty(fSquadPLa) { MoveSquad(fSquadPLa); }
+			if !ds_list_empty(eSquadPLa) { MoveSquad(eSquadPLa); }
 			break;
 		case "LEFT":
 			switch movement
 			{
 				case "ATTACK":
+					orders = "ATTACK_MOVE";
 					frontLX = (room_width * 0.2) + irandom_range(-oGrid.cellSize * 10, oGrid.cellSize * 10);
 					//Adjust platoon x positions
 					fplatoon2x = frontLX;
@@ -147,6 +152,7 @@ function AdjustFrontPosition(front, movement)
 					}
 					break;
 				case "RETREAT":
+					orders = "RETREAT_MOVE";
 					frontLX = (room_width * 0.2) + irandom_range(-oGrid.cellSize * 10, oGrid.cellSize * 10);
 					//Adjust platoon x positions
 					fplatoon2x = frontLX;
@@ -168,6 +174,7 @@ function AdjustFrontPosition(front, movement)
 					}
 					break;
 				case "DEFEND":
+					orders = "DEFEND_MOVE";
 					frontLX = (room_width * 0.2) + irandom_range(-oGrid.cellSize * 10, oGrid.cellSize * 10);
 					//Adjust platoon x positions
 					fplatoon2x = frontLX;
@@ -218,28 +225,29 @@ function AdjustFrontPosition(front, movement)
 			esquad3Ex = eplatoon3x - (oGrid.cellSize * 30);
 			esquad3Ey = eplatoon3y - (oGrid.cellSize * 10);
 			
-			if !ds_list_empty(fSquadP2a) { MoveSquad(fPlatoon2, 0); }
-			if !ds_list_empty(fSquadP2b) { MoveSquad(fPlatoon2, 1); }
-			if !ds_list_empty(fSquadP2c) { MoveSquad(fPlatoon2, 2); }
-			if !ds_list_empty(fSquadP2d) { MoveSquad(fPlatoon2, 3); }
-			if !ds_list_empty(fSquadP2e) { MoveSquad(fPlatoon2, 4); }
+			if !ds_list_empty(fSquadP2a) { MoveSquad(fSquadP2a); IssueOrder(fSquadP2a, orders); }
+			if !ds_list_empty(fSquadP2b) { MoveSquad(fSquadP2b); IssueOrder(fSquadP2b, orders); }
+			if !ds_list_empty(fSquadP2c) { MoveSquad(fSquadP2c); IssueOrder(fSquadP2c, orders); }
+			if !ds_list_empty(fSquadP2d) { MoveSquad(fSquadP2d); IssueOrder(fSquadP2d, orders); }
+			if !ds_list_empty(fSquadP2e) { MoveSquad(fSquadP2e); IssueOrder(fSquadP2e, orders); }
 			
-			if !ds_list_empty(eSquadP3a) { MoveSquad(ePlatoon3, 0); }
-			if !ds_list_empty(eSquadP3b) { MoveSquad(ePlatoon3, 1); }
-			if !ds_list_empty(eSquadP3c) { MoveSquad(ePlatoon3, 2); }
-			if !ds_list_empty(eSquadP3d) { MoveSquad(ePlatoon3, 3); }
-			if !ds_list_empty(eSquadP3e) { MoveSquad(ePlatoon3, 4); }
+			if !ds_list_empty(eSquadP3a) { MoveSquad(eSquadP3a); }
+			if !ds_list_empty(eSquadP3b) { MoveSquad(eSquadP3b); }
+			if !ds_list_empty(eSquadP3c) { MoveSquad(eSquadP3c); }
+			if !ds_list_empty(eSquadP3d) { MoveSquad(eSquadP3d); }
+			if !ds_list_empty(eSquadP3e) { MoveSquad(eSquadP3e); }
 			
-			if !ds_list_empty(fSquadPTb) { MoveSquad(fPlatoonT, 1); }
-			if !ds_list_empty(eSquadPTc) { MoveSquad(ePlatoonT, 2); }
+			if !ds_list_empty(fSquadPTb) { MoveSquad(fSquadPTb); }
+			if !ds_list_empty(eSquadPTc) { MoveSquad(eSquadPTc); }
 			
-			if !ds_list_empty(fSquadPLb) { MoveSquad(fPlatoonL, 1); }
-			if !ds_list_empty(eSquadPLc) { MoveSquad(ePlatoonL, 2); }
+			if !ds_list_empty(fSquadPLb) { MoveSquad(fSquadPLb); }
+			if !ds_list_empty(eSquadPLc) { MoveSquad(eSquadPLc); }
 			break;
 		case "RIGHT":
 			switch movement
 			{
 				case "ATTACK":
+					orders = "ATTACK_MOVE";
 					frontRX = (room_width * 0.8) + irandom_range(-oGrid.cellSize * 10, oGrid.cellSize * 10);
 					//Adjust platoon x positions
 					fplatoon3x = frontRX;
@@ -261,6 +269,7 @@ function AdjustFrontPosition(front, movement)
 					}
 					break;
 				case "RETREAT":
+					orders = "RETREAT_MOVE";
 					frontRX = (room_width * 0.8) + irandom_range(-oGrid.cellSize * 10, oGrid.cellSize * 10);
 					//Adjust platoon x positions
 					fplatoon3x = frontRX;
@@ -282,6 +291,7 @@ function AdjustFrontPosition(front, movement)
 					}
 					break;
 				case "DEFEND":
+					orders = "DEFEND_MOVE";
 					frontRX = (room_width * 0.8) + irandom_range(-oGrid.cellSize * 10, oGrid.cellSize * 10);
 					//Adjust platoon x positions
 					fplatoon3x = frontRX;
@@ -333,23 +343,23 @@ function AdjustFrontPosition(front, movement)
 			esquad2Ex = eplatoon2x - (oGrid.cellSize * 30);
 			esquad2Ey = eplatoon2y - (oGrid.cellSize * 10);
 			
-			if !ds_list_empty(fSquadP3a) { MoveSquad(fPlatoon3, 0); }
-			if !ds_list_empty(fSquadP3b) { MoveSquad(fPlatoon3, 1); }
-			if !ds_list_empty(fSquadP3c) { MoveSquad(fPlatoon3, 2); }
-			if !ds_list_empty(fSquadP3d) { MoveSquad(fPlatoon3, 3); }
-			if !ds_list_empty(fSquadP3e) { MoveSquad(fPlatoon3, 4); }
+			if !ds_list_empty(fSquadP3a) { MoveSquad(fSquadP3a); IssueOrder(fSquadP3a, orders); }
+			if !ds_list_empty(fSquadP3b) { MoveSquad(fSquadP3b); IssueOrder(fSquadP3b, orders); }
+			if !ds_list_empty(fSquadP3c) { MoveSquad(fSquadP3c); IssueOrder(fSquadP3c, orders); }
+			if !ds_list_empty(fSquadP3d) { MoveSquad(fSquadP3d); IssueOrder(fSquadP3d, orders); }
+			if !ds_list_empty(fSquadP3e) { MoveSquad(fSquadP3e); IssueOrder(fSquadP3e, orders); }
 			
-			if !ds_list_empty(eSquadP2a) { MoveSquad(ePlatoon2, 0); }
-			if !ds_list_empty(eSquadP2b) { MoveSquad(ePlatoon2, 1); }
-			if !ds_list_empty(eSquadP2c) { MoveSquad(ePlatoon2, 2); }
-			if !ds_list_empty(eSquadP2d) { MoveSquad(ePlatoon2, 3); }
-			if !ds_list_empty(eSquadP2e) { MoveSquad(ePlatoon2, 4); }
+			if !ds_list_empty(eSquadP2a) { MoveSquad(eSquadP2a); }
+			if !ds_list_empty(eSquadP2b) { MoveSquad(eSquadP2b); }
+			if !ds_list_empty(eSquadP2c) { MoveSquad(eSquadP2c); }
+			if !ds_list_empty(eSquadP2d) { MoveSquad(eSquadP2d); }
+			if !ds_list_empty(eSquadP2e) { MoveSquad(eSquadP2e); }
 			
-			if !ds_list_empty(fSquadPTc) { MoveSquad(fPlatoonT, 2); }
-			if !ds_list_empty(eSquadPTb) { MoveSquad(ePlatoonT, 1); }
+			if !ds_list_empty(fSquadPTc) { MoveSquad(fSquadPTc); }
+			if !ds_list_empty(eSquadPTb) { MoveSquad(eSquadPTb); }
 			
-			if !ds_list_empty(fSquadPLc) { MoveSquad(fPlatoonL, 2); }
-			if !ds_list_empty(eSquadPLb) { MoveSquad(ePlatoonL, 1); }
+			if !ds_list_empty(fSquadPLc) { MoveSquad(fSquadPLc); }
+			if !ds_list_empty(eSquadPLb) { MoveSquad(eSquadPLb); }
 			break;
 	}
 }

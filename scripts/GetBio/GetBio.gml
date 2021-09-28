@@ -16,7 +16,7 @@ function GetBio(type)
 			ds_list_delete(oDialog.snameListf, sli);
 			uNickname = "";
 			uRank = "PVT";
-			uAge  = string(irandom_range(18, 55));
+			uAge  = irandom_range(18, 55);
 			uHome = choose("New York", "Los Angeles", "Chicago", "Kansas");
 			break;
 		case F_RIFLEMAN:
@@ -31,7 +31,7 @@ function GetBio(type)
 			ds_list_delete(oDialog.snameListf, sli);
 			uNickname = "";
 			uRank = "PVT";
-			uAge  = string(irandom_range(18, 55));
+			uAge  = irandom_range(18, 55);
 			uHome = choose("New York", "Los Angeles", "Chicago", "Kansas");
 			break;
 		case E_RIFLEMAN:
@@ -46,7 +46,7 @@ function GetBio(type)
 			ds_list_delete(oDialog.snameListe, sli);
 			uNickname = "";
 			uRank = "PVT";
-			uAge  = string(irandom_range(18, 55));
+			uAge  = irandom_range(18, 55);
 			uHome = choose("Moscow", "Kiev", "Glasov", "Petersburg");
 			break;
 		case F_TANK:

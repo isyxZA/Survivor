@@ -33,18 +33,21 @@ function InitMovement(type)
 	switch type 
 	{
 		case PLAYER://Player
+			uSquadFollow = true;
 			image_angle = 90;
 			rotationTarget = 90;
 			pSpeed = 0;
 			tSpeed = 0.6;
 			break;
 		case F_RIFLEMAN://Friend
+			uSquadFollow = true;
 			image_angle = 90;
 			rotationTarget = 90;
 			pSpeed = 0;
 			tSpeed = 0.6;
 			break;
 		case E_RIFLEMAN://Foe
+			uSquadFollow = true;
 			image_angle = 270;
 			rotationTarget = 270;
 			pSpeed = 0;

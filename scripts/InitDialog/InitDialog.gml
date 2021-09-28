@@ -19,7 +19,6 @@ function InitDialog(type)
 			dText  = "";
 			
 			canTalk = true;
-			getDialog = false;
 			showDialog = false;
 			dialogTime = 0;
 			
@@ -40,7 +39,6 @@ function InitDialog(type)
 			dText  = "";
 			
 			canTalk = true;
-			getDialog = false;
 			showDialog = false;
 			dialogTime = 0;
 			
@@ -61,7 +59,6 @@ function InitDialog(type)
 			dText  = "";
 			
 			canTalk = true;
-			getDialog = false;
 			showDialog = false;
 			dialogTime = 0;
 			

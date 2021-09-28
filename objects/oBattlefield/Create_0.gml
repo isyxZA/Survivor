@@ -425,7 +425,7 @@ esquadLBy = eplatoonLy - (oGrid.cellSize * 10);
 esquadLCx = eplatoonLx - (oGrid.cellSize * 50);
 esquadLCy = eplatoonLy - (oGrid.cellSize * 10);
 
-frontSeparation = oGrid.cellSize * 16;
+frontSeparation = oGrid.cellSize * 12;
 
 frontCX = x;
 frontCY = y;

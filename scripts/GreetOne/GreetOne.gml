@@ -15,7 +15,7 @@ function GreetOne(type)
 				"Is that " + oControl.selectedObj.uSurname + " over there?"
 			);
 			if dialog != "" { ds_list_add(dialogList, dialog); }
-			if dialogTime == 0 
+			if dialogTime <= 0 
 			{ 
 				showDialog = true;
 				dText = dialog;
@@ -34,7 +34,7 @@ function GreetOne(type)
 				"Is that " + oPlayer.uSurname + " over there?"
 			);
 			if dialog != "" { ds_list_add(dialogList, dialog); }
-			if dialogTime == 0 
+			if dialogTime <= 0 
 			{ 
 				alarm[2] = room_speed;//showDialog = true;
 				dText = dialog;

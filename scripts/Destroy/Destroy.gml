@@ -159,12 +159,6 @@ function Destroy(type)
 			{ 
 				with oBattlefield { HaltSquad(other.uSquad); }
 			}
-			with instance_create_layer(x, y, "UnitFX", oExplosion)
-			{
-				eSprite = sExplosion02;
-				eAngle = other.image_angle;
-				image_speed = 1;
-			}
 			break;
 		case F_LAV:
 			mp_grid_clear_cell(global.NavGrid, cellX-1, cellY-1);
@@ -197,12 +191,6 @@ function Destroy(type)
 			if uIsSquadLead 
 			{ 
 				with oBattlefield { HaltSquad(other.uSquad); }
-			}
-			with instance_create_layer(x, y, "UnitFX", oExplosion)
-			{
-				eSprite = sExplosion02;
-				eAngle = other.image_angle;
-				image_speed = 1;
 			}
 			break;
 		case E_TANK:
@@ -237,12 +225,6 @@ function Destroy(type)
 			{ 
 				with oBattlefield { HaltSquad(other.uSquad); }
 			}
-			with instance_create_layer(x, y, "UnitFX", oExplosion)
-			{
-				eSprite = sExplosion02;
-				eAngle = other.image_angle;
-				image_speed = 1;
-			}
 			break;
 		case E_LAV:
 			mp_grid_clear_cell(global.NavGrid, cellX-1, cellY-1);
@@ -275,12 +257,6 @@ function Destroy(type)
 			if uIsSquadLead 
 			{ 
 				with oBattlefield { HaltSquad(other.uSquad); }
-			}
-			with instance_create_layer(x, y, "UnitFX", oExplosion)
-			{
-				eSprite = sExplosion02;
-				eAngle = other.image_angle;
-				image_speed = 1;
 			}
 			break;
 	}

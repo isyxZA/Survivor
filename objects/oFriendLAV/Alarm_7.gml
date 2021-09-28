@@ -1,11 +1,12 @@
 /// @description Reload timer
-uReloadTime -= 1;
+uReloadTime -= 5;
 if uReloadTime <= 0 
 {
 	uReloading = false;
-	uMainAmmo = 30;
+	u30MMAmmo = 30;
 	uMGAmmo = 30;
 	uReloadTime = room_speed;
+	if uCanShoot { alarm[6] = room_speed; }
 }
 else
 {

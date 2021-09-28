@@ -45,7 +45,7 @@ function GreetAll(type)
 			break;
 	}
 	if dialog != "" { ds_list_add(dialogList, dialog); }
-	if dialogTime == 0 
+	if dialogTime <= 0 
 	{ 
 		showDialog = true; 
 		dText = dialog;

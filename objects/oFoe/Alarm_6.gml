@@ -49,6 +49,7 @@ if uCanShoot
 				//Display reload dialog
 				uShooting = false;
 				uReloading = true;
+				alarm[7] = room_speed;
 			}
 		}
 		else if uThrowGrenade

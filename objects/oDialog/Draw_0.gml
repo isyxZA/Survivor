@@ -25,7 +25,7 @@ if !ds_list_empty(global.DialogList)
 				draw_clear_alpha(c_black, 0.7);
 				draw_text(dSurfW * 0.5, dSurfH * 0.5, dText);
 				surface_reset_target();
-				draw_surface_ext(dSurf, x + dSurfAdjX, y + dSurfAdjY, 1, 1, 0, c_white, 1);
+				draw_surface_ext(dSurf, x + dSurfAdjX, y + dSurfAdjY, oDialog.menuRatio, oDialog.menuRatio, 0, c_white, 1);
 				cw[3] = true;
 				gpu_set_colorwriteenable(cw);
 			}

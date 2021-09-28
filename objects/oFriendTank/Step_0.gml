@@ -34,15 +34,8 @@ if uFollow
 
 if moving 
 {
-	if uCanShoot 
-	{ 
-		uCanShoot = false;
-		uShootMain = false;
-		uShootMg = false;
-		uShooting = false;
-		uTarget = -1;
-		alarm[6] = -1;
-	}
+	if uCanShoot { uCanShoot = false; }
+	
 	if turret_angle != image_angle
 	{
 		turret_angle += angle_difference(image_angle, turret_angle) * 0.02;
@@ -53,15 +46,7 @@ else
 {
 	if uReloading
 	{
-		if uCanShoot 
-		{ 
-			uCanShoot = false;
-			uShootMain = false;
-			uShootMg = false;
-			uShooting = false;
-			uTarget = -1;
-			alarm[6] = -1;
-		}
+		if uCanShoot { uCanShoot = false; }
 	}
 	else
 	{

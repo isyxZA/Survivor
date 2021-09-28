@@ -13,7 +13,7 @@ if findGoal
 //Pathfinding when following another unit
 if uFollow	
 {
-	if uFollowTarget != noone
+	if instance_exists(uFollowTarget)
 	{
 		if !uFollowing
 		{
@@ -34,30 +34,14 @@ if uFollow
 
 if moving 
 {
-	if uCanShoot 
-	{ 
-		uCanShoot = false;
-		uShootRifle = false;
-		uThrowGrenade = false;
-		uShooting = false;
-		uTarget = -1;
-		alarm[6] = -1;
-	}
+	if uCanShoot { uCanShoot = false; }
 	AdjustTransform(uType); 
 }
 else 
 {
 	if uReloading
 	{
-		if uCanShoot 
-		{ 
-			uCanShoot = false;
-			uShootRifle = false;
-			uThrowGrenade = false;
-			uShooting = false;
-			uTarget = -1;
-			alarm[6] = -1;
-		}
+		if uCanShoot { uCanShoot = false; }
 	}
 	else
 	{
@@ -73,21 +57,15 @@ else
 	}
 }
 
-if getDialog
-{
-	getDialog = false;
-	GetDialog(uType, true, false, false);
-}
-
 if showDialog
 {
 	showDialog = false;
 	dialogTime = room_speed * 0.2;
-	alarm[3] = room_speed * 0.2;
+	alarm[3] = room_speed * 0.4;
 	ds_list_add(global.DialogList, id);
 	if isSelected 
 	{
 		ds_list_add(oGUI.selectedDialog, dText);
-		oGUI.alarm[2] = 200;
+		oGUI.alarm[2] = 210;
 	}
 }

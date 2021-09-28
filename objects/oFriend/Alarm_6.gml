@@ -49,6 +49,14 @@ if uCanShoot
 				//Display reload dialog
 				uShooting = false;
 				uReloading = true;
+				alarm[7] = room_speed;
+				var dl = choose("Reloading!", "Gotta reload", "Shit! Reloading.", "Cover me! Reloading.");
+				ds_list_add(dialogList, dl);
+				if dialogTime == 0 
+				{ 
+					showDialog = true; 
+					dText = dl;
+				}
 			}
 		}
 		else if uThrowGrenade

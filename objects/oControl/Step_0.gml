@@ -11,20 +11,7 @@ if instance_exists(oPlayer)
 
 	//Selected object logic
 	if selectedObj != noone 
-	{ 
-		/*
-		//Menu hotkey
-		if keyboard_check_pressed(ord("E"))
-		{
-			//Actions menu setup
-			//If the menu is not currently active
-			with oDialog
-			{
-				if !menuActive { menuLevel = ACTIONMENU; }
-				SetActionMenu(menuLevel);
-			}
-		}
-		*/
+	{
 		if point_distance(selectedObj.x, selectedObj.y, oPlayer.x, oPlayer.y) > oPlayer.uVoiceRange
 		{
 			if oGUI.optionsDisplay { oGUI.optionsDisplay = false; }
@@ -46,6 +33,12 @@ if instance_exists(oPlayer)
 				}
 			}
 		}
+	}
+	
+	//Player control hotkeys
+	if keyboard_check_pressed(ord("S"))
+	{
+		with oPlayer { if moving { Stop(uType); } }
 	}
 }
 else

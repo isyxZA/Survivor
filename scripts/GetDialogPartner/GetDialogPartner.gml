@@ -19,6 +19,7 @@ function GetDialogPartner()
 							if oControl.selectedObj != noone { oControl.selectedObj.isSelected = false; }
 							oControl.selectedObj = cUnit;
 							with cUnit { isSelected = true; GreetOne(uType); }
+							oGUI.alarm[0] = 1;
 							oGUI.dialogLevel = 1;
 							//Enable options display
 							oGUI.alarm[3] = room_speed;

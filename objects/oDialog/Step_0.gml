@@ -45,6 +45,7 @@ if menuActive
 									}
 									else
 									{
+										if ds_list_size(oGUI.selectedDialog) > 0 { oGUI.alarm[2] = 1; }
 										//Level 0 is first contact
 										oGUI.dialogLevel = 0;
 										GreetAll(uType);
@@ -93,6 +94,7 @@ if menuActive
 								uShootRifle = true;
 								alarm[6] = room_speed;
 								uShooting = true;
+								uBurstCount = 0;
 								Stop(uType);
 							}
 						}

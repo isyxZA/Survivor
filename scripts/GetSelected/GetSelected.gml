@@ -23,6 +23,7 @@ function GetSelected(mButton)
 							if selectedObj != noone { selectedObj.isSelected = false; }
 							iu.isSelected = true; 
 							selectedObj = iu;
+							oGUI.alarm[0] = 1;
 							//Reset gui dialog
 							oGUI.dialogLevel = 0;
 							oGUI.optionsDisplay = false;
@@ -35,6 +36,7 @@ function GetSelected(mButton)
 							if selectedObj != noone { selectedObj.isSelected = false; }
 							iu.isSelected = true; 
 							selectedObj = iu;
+							oGUI.alarm[0] = 1;
 							//Reset gui dialog
 							oGUI.dialogLevel = 0;
 							oGUI.optionsDisplay = false;
@@ -93,6 +95,7 @@ function GetSelected(mButton)
 								if !menuActive { menuLevel = ACTIONMENU; }
 								SetActionMenu(menuLevel);
 							}
+							oGUI.alarm[0] = 1;
 							//Reset gui dialog
 							oGUI.dialogLevel = 0;
 							oGUI.optionsDisplay = false;
@@ -124,6 +127,7 @@ function GetSelected(mButton)
 								if !menuActive { menuLevel = ACTIONMENU_E; }
 								SetActionMenu(menuLevel);
 							}
+							oGUI.alarm[0] = 1;
 							//Reset gui dialog
 							oGUI.dialogLevel = 0;
 							oGUI.optionsDisplay = false;

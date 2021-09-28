@@ -1,9 +1,9 @@
 my_view = 0; 
-//view_camera[my_view] = camera_create_view((room_width * 0.5) - (oGUI.guiWidth * 0.5), (room_height * 0.5) - (oGUI.guiHeight * 0.5), 
-											//1920, 1080, 0, oPlayer, -1, -1, 256, 256);
-											
 view_camera[my_view] = camera_create_view((room_width * 0.5) - (oGUI.guiWidth * 0.5), (room_height * 0.5) - (oGUI.guiHeight * 0.5), 
-											1920, 1080)//, 0, oPlayer, -1, -1, 256, 256);
+											1920, 1080, 0, oPlayer, -1, -1, 256, 256);
+											
+//view_camera[my_view] = camera_create_view((room_width * 0.5) - (oGUI.guiWidth * 0.5), (room_height * 0.5) - (oGUI.guiHeight * 0.5), 
+											//1920, 1080)//, 0, oPlayer, -1, -1, 256, 256);
 my_camera = view_camera[my_view];
 view_set_visible(my_view, true);
 

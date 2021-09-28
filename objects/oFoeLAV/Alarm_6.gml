@@ -10,8 +10,8 @@ if uCanShoot
 				if point_distance(x, y, uTarget.x, uTarget.y) < uAttackRange
 				{
 					u30MMAmmo -= 1;
-					var bsx = x + lengthdir_x(50, turret_angle);
-					var bsy = y + lengthdir_y(50, turret_angle);
+					var bsx = x + lengthdir_x(40, turret_angle);
+					var bsy = y + lengthdir_y(40, turret_angle);
 					if Chance(uAccuracy)
 					{
 						SpawnBullet(B_MGSPD, B_30MM, bsx, bsy, uTarget.x, uTarget.y);
@@ -28,6 +28,8 @@ if uCanShoot
 					{
 						fIndex = sCannonFlash;
 						fAngle = other.turret_angle;
+						fScale = 0.7;
+						fAlpha = 0.7;
 						image_speed = 0.1;
 						alarm[0] = 20;
 					}
@@ -48,6 +50,7 @@ if uCanShoot
 				//Display reload dialog
 				uShooting = false;
 				uReloading = true;
+				alarm[7] = room_speed;
 			}
 		}
 		else if uShootMG
@@ -55,8 +58,8 @@ if uCanShoot
 			if point_distance(x, y, uTarget.x, uTarget.y) < uAttackRange
 			{
 				uMGAmmo -= 1;
-				var bsx = x + lengthdir_x(60, turret_angle);
-				var bsy = y + lengthdir_y(60, turret_angle);
+				var bsx = x + lengthdir_x(40, turret_angle);
+				var bsy = y + lengthdir_y(40, turret_angle);
 				if Chance(uAccuracy)
 				{
 					SpawnBullet(B_MGSPD, B_MG, bsx, bsy, uTarget.x, uTarget.y);
@@ -71,6 +74,8 @@ if uCanShoot
 				{
 					fIndex = sRifleFlash;
 					fAngle = other.turret_angle;
+					fScale = 1.5;
+					fAlpha = 1;
 					alarm[0] = 8;
 				}
 				++uBurstCount;

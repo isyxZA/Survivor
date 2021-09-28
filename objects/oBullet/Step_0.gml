@@ -34,7 +34,7 @@ if bMoving
 							break;
 						case B_CANNON:
 							var st = audio_sound_length(aCannonExplode01);
-							alarm[0] = st;
+							alarm[0] = room_speed * st;
 							audio_play_sound_on(bEmit, aCannonExplode01, false, 10);
 							with instance_create_layer(x, y, "UnitFX", oExplosion)
 							{
@@ -45,11 +45,11 @@ if bMoving
 							break;
 						case B_30MM:
 							var st = audio_sound_length(aCannonExplode01);
-							alarm[0] = st;
+							alarm[0] = room_speed * st;
 							audio_play_sound_on(bEmit, aCannonExplode01, false, 10);
 							with instance_create_layer(x, y, "UnitFX", oExplosion)
 							{
-								eSprite = sExplosion01;
+								eSprite = sExplosion07;
 								eAngle = other.image_angle;
 								image_speed = 1;
 							}
@@ -75,7 +75,7 @@ if bMoving
 						case B_CANNON:
 							var st = audio_sound_length(aCannonExplode01);
 							audio_play_sound_on(bEmit, aCannonExplode01, false, 10);
-							alarm[0] = st;
+							alarm[0] = room_speed * st;
 							with instance_create_layer(x, y, "UnitFX", oExplosion)
 							{
 								eSprite = sExplosion01;
@@ -86,10 +86,10 @@ if bMoving
 						case B_30MM:
 							var st = audio_sound_length(aCannonExplode01);
 							audio_play_sound_on(bEmit, aCannonExplode01, false, 10);
-							alarm[0] = st;
+							alarm[0] = room_speed * st;
 							with instance_create_layer(x, y, "UnitFX", oExplosion)
 							{
-								eSprite = sExplosion01;
+								eSprite = sExplosion07;
 								eAngle = other.image_angle;
 								image_speed = 1;
 							}
@@ -114,7 +114,7 @@ if bMoving
 						case B_CANNON:
 							bDamageRatio -= 0.2;
 							var st = audio_sound_length(aCannonExplode01);
-							alarm[0] = st;
+							alarm[0] = room_speed * st;
 							audio_play_sound_on(bEmit, aCannonExplode01, false, 10);
 							with instance_create_layer(x, y, "UnitFX", oExplosion)
 							{
@@ -126,11 +126,11 @@ if bMoving
 						case B_30MM:
 							bDamageRatio -= 0.2;
 							var st = audio_sound_length(aCannonExplode01);
-							alarm[0] = st;
+							alarm[0] = room_speed * st;
 							audio_play_sound_on(bEmit, aCannonExplode01, false, 10);
 							with instance_create_layer(x, y, "UnitFX", oExplosion)
 							{
-								eSprite = sExplosion01;
+								eSprite = sExplosion07;
 								eAngle = other.image_angle;
 								image_speed = 1;
 							}
@@ -155,7 +155,7 @@ if bMoving
 						case B_CANNON:
 							bDamageRatio -= 0.1;
 							var st = audio_sound_length(aCannonExplode01);
-							alarm[0] = st;
+							alarm[0] = room_speed * st;
 							audio_play_sound_on(bEmit, aCannonExplode01, false, 10);
 							with instance_create_layer(x, y, "UnitFX", oExplosion)
 							{
@@ -167,11 +167,11 @@ if bMoving
 						case B_30MM:
 							bDamageRatio -= 0.1;
 							var st = audio_sound_length(aCannonExplode01);
-							alarm[0] = st;
+							alarm[0] = room_speed * st;
 							audio_play_sound_on(bEmit, aCannonExplode01, false, 10);
 							with instance_create_layer(x, y, "UnitFX", oExplosion)
 							{
-								eSprite = sExplosion01;
+								eSprite = sExplosion07;
 								eAngle = other.image_angle;
 								image_speed = 1;
 							}
@@ -189,9 +189,9 @@ if bMoving
 			}
 			var cd = (bDamage * bDamageRatio);
 			co.uHealth -= cd;
-			if co.uHealth <= 0
+			if co.uHealth <= 0 && co.uShowDeath
 			{
-				with co { instance_destroy(); }
+				with co { alarm[11] = room_speed; }
 			}
 		}
 		else
@@ -204,7 +204,7 @@ if bMoving
 					break;
 				case B_CANNON:
 					var st = audio_sound_length(aCannonExplode01);
-					alarm[0] = st;
+					alarm[0] = room_speed * st;
 					audio_play_sound_on(bEmit, aCannonExplode01, false, 10);
 					with instance_create_layer(x, y, "UnitFX", oExplosion)
 					{
@@ -215,11 +215,11 @@ if bMoving
 					break;
 				case B_30MM:
 					var st = audio_sound_length(aCannonExplode01);
-					alarm[0] = st;
+					alarm[0] = room_speed * st;
 					audio_play_sound_on(bEmit, aCannonExplode01, false, 10);
 					with instance_create_layer(x, y, "UnitFX", oExplosion)
 					{
-						eSprite = sExplosion01;
+						eSprite = sExplosion07;
 						eAngle = other.image_angle;
 						image_speed = 1;
 					}
